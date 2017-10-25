@@ -1,6 +1,19 @@
-<div class="col-sm-6 col-offset-left-3">
-    <form>
-        <label>User</label>
-        <input type="text" formControlName="uName"/>
+<div id="login-form" class="col-sm-6 col-offset-3">
+    <form [formGroup]="myForm">
+        <H3>{{tVisible}}</H3>
+        <div class="form-groupe">
+            <label for="name">User</label>
+            <input type="text" name="name" formControlName="uName"/>
+        </div>
+        <div class="form-groupe">
+            <label for="password">Password</label>
+            <input type="password" name="password" formControlName="uPass"/>
+        </div>
+        <div class="form-groupe">
+            <div class="btn btn-default" (click)="login()">Login</div>
+        </div>
+        <div class="close-element" onclick="$('#login-form').fadeOut();">
+            <span class="glyphicon glyphicon-off"></span>
+        </div>
     </form>
 </div>
