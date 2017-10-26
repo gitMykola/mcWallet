@@ -62,8 +62,9 @@ export class TFormComponent implements OnInit {
         this.privateKey = localStorage.getItem('privateKey');
         this.publicKey = localStorage.getItem('publicKey');
     }
-    sendCrypto() {
+    sendCryptoAS() {
         this.tokenAuth = localStorage.getItem('accessToken');
+        this.keyAES = localStorage.getItem('keyAES');
         const header = new Headers({'x-access-token': this.tokenAuth});
         header.append('Content-Type', 'application/json');
         const options = new RequestOptions({ headers: header });
@@ -72,9 +73,30 @@ export class TFormComponent implements OnInit {
             .subscribe((res: Response) => {
                 this.serverPublicKey = atob(res.headers.get('res-spk'));
                 localStorage.setItem('serverPublicKey', this.serverPublicKey);
-                console.dir(this.serverPublicKey);
+                console.log('SPK - ' + this.serverPublicKey);
                 console.dir(res.json());
-                // this.cryptoAESKey = crypto;
+                this.cryptoAESKey = crypto.publicEncrypt(localStorage
+                    .getItem('serverPublicKey'), Buffer
+                    .from(this.keyAES)) ;
+                this.http.post('http://localhost:3000/api/v3.0/receiveAS', // send CPbK
+                    {ae: this.cryptoAESKey}, options)
+                    .subscribe((resp: Response) => {
+                        console.dir(resp);
+                    });
+            });
+    }
+    sendCryptData() {
+        this.tokenAuth = localStorage.getItem('accessToken');
+        const header = new Headers({'x-access-token': this.tokenAuth});
+        header.append('Content-Type', 'application/json');
+        const options = new RequestOptions({ headers: header });
+        this.cryptoAESKey = crypto.publicEncrypt(localStorage
+            .getItem('serverPublicKey'), Buffer
+                .from('Fuck sheat')) ;
+        this.http.post('http://localhost:3000/api/v3.0/encrypt', // send CPbK
+            {en: this.cryptoAESKey}, options)
+            .subscribe((resp: Response) => {
+                console.dir(resp);
             });
     }
     CryptoAES() {}
