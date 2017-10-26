@@ -5,6 +5,7 @@ import * as Pair from 'keypair';
 import { Buffer } from 'buffer/';
 import * as crypto from 'crypto-browserify';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
+import * as cp from 'crypto-js';
 
 @Component({
     selector: 'app-tform',
@@ -13,6 +14,7 @@ import { Http, Headers, Response, RequestOptions } from '@angular/http';
 export class TFormComponent implements OnInit {
     public userName: string;
     public userPass: string;
+    public userData: string;
     public tVisible: Boolean = true;
     public myForm: FormGroup;
     private tokenAuth: string;
@@ -34,7 +36,9 @@ export class TFormComponent implements OnInit {
             uPass: [this.userPass, [Validators.required,
                 Validators.minLength(4),
                 Validators.maxLength(50)]],
-            // myUpload: [this.userImages, [Validators.required]]
+            uData: [this.userData, [Validators.required,
+                Validators.minLength(1),
+                Validators.maxLength(250)]],
         });
     }
     login() {
@@ -52,8 +56,23 @@ export class TFormComponent implements OnInit {
             });
     }
     generate() {
+        window.crypto.subtle.generateKey(
+            {
+                name: 'AES-CBC',
+                length: 256,
+            },
+                true,
+            ['encrypt', 'decrypt']
+        )
+            .then(key => {
+                window.crypto.subtle.exportKey(
+                    'jwk', key
+                )
+                    .then(keyData => localStorage
+                        .setItem('keyAES', JSON.stringify(keyData)));
+            });
         const keys = Pair();
-        localStorage.setItem('keyAES', RandomString(32)); // AES key
+        // localStorage.setItem('keyAES', RandomString(32)); // AES key
         localStorage.setItem('privateKey', keys.private); // RSA private key
         localStorage.setItem('publicKey', keys.public); // RSA public key
     }
@@ -86,18 +105,49 @@ export class TFormComponent implements OnInit {
             });
     }
     sendCryptData() {
-        this.tokenAuth = localStorage.getItem('accessToken');
-        const header = new Headers({'x-access-token': this.tokenAuth});
-        header.append('Content-Type', 'application/json');
-        const options = new RequestOptions({ headers: header });
-        this.cryptoAESKey = crypto.publicEncrypt(localStorage
-            .getItem('serverPublicKey'), Buffer
-                .from('Fuck sheat')) ;
-        this.http.post('http://localhost:3000/api/v3.0/encrypt', // send CPbK
-            {en: this.cryptoAESKey}, options)
-            .subscribe((resp: Response) => {
-                console.dir(resp);
-            });
+        window.crypto.subtle.importKey(
+            'jwk',
+            JSON.parse(localStorage.getItem('keyAES')),
+            {name: 'AES-CBC'},
+            true,
+            ['encrypt', 'decrypt']
+        ).then(key => {
+            const initVector = window.crypto.getRandomValues(new Uint8Array(16));
+            window.crypto.subtle.encrypt(
+                {
+                    name: 'AES-CBC',
+                    iv: initVector
+                },
+                key,
+                Buffer.from(this.myForm.getRawValue().uData)
+            )
+                .then(encData => {
+                    console.dir(key);
+                    this.tokenAuth = localStorage.getItem('accessToken');
+                    const header = new Headers({'x-access-token': this.tokenAuth});
+                    header.append('Content-Type', 'application/json');
+                    const options = new RequestOptions({ headers: header });
+                    this.http.post('http://localhost:3000/api/v3.0/encryptDA', // send CPbK
+                        {dt: Buffer.from(encData), vr: Buffer.from(initVector)}, options)
+                        .subscribe((resp: Response) => {
+                            console.dir(resp);
+                        });
+                    window.crypto.subtle.decrypt(
+                        {
+                            name: 'AES-CBC',
+                            iv: initVector
+                        },
+                        key,
+                        encData
+                    ).then(dcd => console.dir(Buffer.from(dcd).toString()));
+                    const decipher = crypto.createDecipheriv('aes-256-cbc',
+                        key,
+                        initVector);
+                    let dt = decipher.update(Buffer.from(encData));
+                    dt = decipher.final();
+                    console.log(dt);
+                });
+        });
     }
     CryptoAES() {}
     CryptoData(data: string) {}
