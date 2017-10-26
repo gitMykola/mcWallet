@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/index';
 import { WalletComponent } from './_wallet/index';
 import { TFormComponent } from './test/tForm.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { FormsModule } from '@angular/forms';
 
@@ -20,7 +21,7 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     WalletComponent,
-    TFormComponent
+    TFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     routing,
     ReactiveFormsModule,
       NgbModule.forRoot(),
+      HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

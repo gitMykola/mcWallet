@@ -2,18 +2,29 @@
     <form [formGroup]="myForm">
         <H3>{{tVisible}}</H3>
         <div class="form-groupe">
-            <label for="name">User</label>
+            <label>User</label>
             <input type="text" name="name" formControlName="uName"/>
         </div>
         <div class="form-groupe">
-            <label for="password">Password</label>
+            <label>Password</label>
             <input type="password" name="password" formControlName="uPass"/>
+            <h3>{{userName}}</h3>
         </div>
         <div class="form-groupe">
             <div class="btn btn-default" (click)="login()">Login</div>
+            <div class="btn btn-default" (click)="initCrypto()">KEYS</div>
+            <div class="btn btn-default" (click)="sendCrypto()">Send RSA</div>
         </div>
-        <div class="close-element" onclick="$('#login-form').fadeOut();">
+        <div class="close-element" onclick="$('#login-form').fadeOut(100);">
             <span class="glyphicon glyphicon-off"></span>
         </div>
+        <h4 *ngIf="tVisible">Process...</h4>
     </form>
+    <div class="panel">
+        <div class="panel-body">
+            <h4>AES key {{keyAES}}</h4>
+            <h4>PRIVATE key {{privateKey}}</h4>
+            <h4>PUBLIC key {{publicKey}}</h4>
+        </div>
+    </div>
 </div>
