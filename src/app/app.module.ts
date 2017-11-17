@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { routing } from './app.routing';
 
+import { AuthorComponent } from './author/index';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     RegisterComponent,
     WalletComponent,
     TFormComponent,
+      AuthorComponent,
   ],
   imports: [
     BrowserModule,
