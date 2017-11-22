@@ -1,0 +1,74 @@
+@color_main_1: #002548;
+@color_main_2: #e4f3ff;
+@color_background: linear-gradient(190deg, @color_main_2, @color_main_1);
+.author {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #333;
+    background: @color_background;
+    perspective: 500px;
+    //animation-name: circleMove;
+    //animation-duration: 13.5s;
+    //animation-timing-function: ease-in;
+    //animation-direction: normal;
+    //animation-iteration-count:infinite;
+    div {
+      display: block;
+      position: absolute;
+      //animation-name: rotateMove;
+      //animation-duration: 3.5s;
+      //animation-timing-function: ease-in;
+      //animation-direction: normal;
+      //animation-iteration-count:infinite;
+    }
+    .skill-areas{
+      .rotAnim
+    }
+    .skill-applications{
+      .rotAnim;
+      .rotAntiAnim
+    }
+    .skill-areas, .skill-applications {
+      //border:solid 1px @color_main_2;
+      border-radius: 50%;
+      background: @color_background;
+      h3 {
+        opacity: 0.3;
+        color: @color_main_2;
+      }
+    }
+}
+.rotAnim{
+  animation-name: rotateMove;
+  animation-duration: 23.5s;
+  animation-timing-function: ease-in;
+  animation-direction: normal;
+  animation-iteration-count:infinite;
+}
+.rotAntiAnim{
+  animation-name: rotateAntiMove;
+  animation-duration: 6.5s;
+}
+@keyframes rotateMove {
+  0%    {transform: translateX(0px) translateY(0px) translateZ(0px);}
+  25%    {transform: translateX(-200px) translateY(0px) translateZ(-200px);}
+  50%   {transform: translateX(0px) translateY(0px) translateZ(-400px);}
+  75%    {transform: translateX(200px) translateY(0px) translateZ(-200px);}
+  100%  {transform: translateX(0px) translateY(0px) translateZ(0px);}
+}
+@keyframes rotateAntiMove {
+  0%    {transform: translateX(0px) translateY(0px) translateZ(0px);}
+  50%   {transform: translateX(200px) translateY(-180px) translateZ(-500px);}
+  100%  {transform: translateX(0px) translateY(0px) translateZ(0px);}
+}
+@keyframes circleMove {
+  0%    {transform:translateX(0px) translateY(0px);opacity:1;}
+  25%   {transform:translateX(100px) translateY(0px);opacity:1;}
+  50%   {transform:translateX(100px) translateY(100px);opacity:1;}
+  75%   {transform:translateX(0px) translateY(100px);opacity:1;}
+  100%  {transform:translateX(0px) translateY(0px);opacity:1;}
+}

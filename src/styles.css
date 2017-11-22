@@ -1,1 +1,102 @@
-/* You can add global styles to this file, and also import other style files */
+.author {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #333;
+  background: linear-gradient(190deg, #e4f3ff, #002548);
+  perspective: 500px;
+}
+.author div {
+  display: block;
+  position: absolute;
+}
+.author .skill-areas {
+  animation-name: rotateMove;
+  animation-duration: 23.5s;
+  animation-timing-function: ease-in;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+}
+.author .skill-applications {
+  animation-name: rotateMove;
+  animation-duration: 23.5s;
+  animation-timing-function: ease-in;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-name: rotateAntiMove;
+  animation-duration: 6.5s;
+}
+.author .skill-areas,
+.author .skill-applications {
+  border-radius: 50%;
+  background: linear-gradient(190deg, #e4f3ff, #002548);
+}
+.author .skill-areas h3,
+.author .skill-applications h3 {
+  opacity: 0.3;
+  color: #e4f3ff;
+}
+.rotAnim {
+  animation-name: rotateMove;
+  animation-duration: 23.5s;
+  animation-timing-function: ease-in;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+}
+.rotAntiAnim {
+  animation-name: rotateAntiMove;
+  animation-duration: 6.5s;
+}
+@keyframes rotateMove {
+  0% {
+    transform: translateX(0px) translateY(0px) translateZ(0px);
+  }
+  25% {
+    transform: translateX(-200px) translateY(0px) translateZ(-200px);
+  }
+  50% {
+    transform: translateX(0px) translateY(0px) translateZ(-400px);
+  }
+  75% {
+    transform: translateX(200px) translateY(0px) translateZ(-200px);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) translateZ(0px);
+  }
+}
+@keyframes rotateAntiMove {
+  0% {
+    transform: translateX(0px) translateY(0px) translateZ(0px);
+  }
+  50% {
+    transform: translateX(200px) translateY(-180px) translateZ(-500px);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) translateZ(0px);
+  }
+}
+@keyframes circleMove {
+  0% {
+    transform: translateX(0px) translateY(0px);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(100px) translateY(0px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(100px) translateY(100px);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(0px) translateY(100px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0px) translateY(0px);
+    opacity: 1;
+  }
+}

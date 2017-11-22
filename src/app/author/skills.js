@@ -27,16 +27,13 @@ module.exports = {
             React:5
         },
         backend:{
-            javascript: {
-                Node: 95,
-                Express: 95,
-            },
-            php:{
-                Laravel:80
-            },
-            cpp:{
-                CGI:50
-            }
+            javascript: 80,
+            php: 90,
+            cpp: 60,
+            Node: 95,
+            Express: 95,
+            Laravel:80,
+            CGI:50
         },
         databases:{
             MySQL:80,

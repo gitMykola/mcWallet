@@ -1,8 +1,35 @@
-<div class="container">
-    <ul>
-        <li *ngFor="let item of items" >{{item}}
-            <p *ngFor="let i of items.item">{{i}}</p>
-        </li>
-
-    </ul>
-</div>
+<div class="author">
+        <div class="skill-areas">
+            <a *ngFor="let item of areas" id="{{item.name}}"
+               name="{{item.rate}}">{{item.name}}</a>
+        </div>
+        <div class="skill-applications text-center">
+            <h3>Applications</h3>
+            <a *ngFor="let item of applications" id="{{item.name}}"
+               name="{{item.rate}}">{{item.name}}</a>
+        </div>
+        <div class="skill-frontend">
+            <a *ngFor="let item of frontend" id="{{item.name}}"
+               name="{{item.rate}}">{{item.name}}</a>
+        </div>
+        <div class="skill-backend">
+            <a *ngFor="let item of backend" id="{{item.name}}"
+               name="{{item.rate}}">{{item.name}}</a>
+        </div>
+        <div class="skill-databases">
+            <a *ngFor="let item of databases" id="{{item.name}}"
+               name="{{item.rate}}">{{item.name}}</a>
+        </div>
+        <div class="skill-scv">
+            <a *ngFor="let item of scv" id="{{item.name}}"
+               name="{{item.rate}}">{{item.name}}</a>
+        </div>
+        <div class="skill-tests">
+            <a *ngFor="let item of tests" id="{{item.name}}"
+               name="{{item.rate}}">{{item.name}}</a>
+        </div>
+        <div class="skill-os">
+            <a *ngFor="let item of os" id="{{item.name}}"
+               name="{{item.rate}}">{{item.name}}</a>
+        </div>
+    </div>
