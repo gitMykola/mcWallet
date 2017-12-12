@@ -36,7 +36,7 @@ export class AuthorComponent implements OnInit {
         console.log('OK');
         document.querySelector('.skill-areas').setAttribute(
             'style', 'top:200px;' +
-            '        left:200px;' +
+            '        left:400px;' +
             '        height:150px;' +
             '        width:150px;'// +
             // '        transform: translateZ(-800px);'

@@ -1,0 +1,107 @@
+.rotAnim{
+  animation-name: rotateMove;
+  animation-duration: 50s;
+  animation-timing-function: cubic-bezier(0, 0, 1, 1);
+  animation-direction: normal;
+  animation-iteration-count:infinite;
+}
+.rotAntiAnim{
+  .rotAnim;
+  //animation-name: rotateMove;
+  animation-duration: 30s;
+  //animation-timing-function: cubic-bezier(0, 0, 1, 1);
+  //animation-direction: normal;
+  //animation-iteration-count:infinite;
+}
+/*.loop(@d) when (@d >= 0){
+  .loop((@d - 3.14159 / 10));
+  {transform: translateX(200 * cos(@d)) translateY(0) translateZ(200 * sin(@d));}
+}
+@keyframes rotateMov {
+  .loop(2*3.14159)
+}*/
+/*Some things aren't imaginable, but so pleasurable to use.*/
+@keyframes rotateMove
+{
+  0.0%	{transform: translateX(200*cos(	6.2832	)*1px) translateY(0px) translateZ(200*sin(	6.2832	)*1px);}
+  2.0%	{transform: translateX(200*cos(	0.1257	)*1px) translateY(0px) translateZ(200*sin(	0.1257	)*1px);}
+  4.0%	{transform: translateX(200*cos(	0.2513	)*1px) translateY(0px) translateZ(200*sin(	0.2513	)*1px);}
+  6.0%	{transform: translateX(200*cos(	0.3770	)*1px) translateY(0px) translateZ(200*sin(	0.3770	)*1px);}
+  8.0%	{transform: translateX(200*cos(	0.5027	)*1px) translateY(0px) translateZ(200*sin(	0.5027	)*1px);}
+  10.0%	{transform: translateX(200*cos(	0.6283	)*1px) translateY(0px) translateZ(200*sin(	0.6283	)*1px);}
+  12.0%	{transform: translateX(200*cos(	0.7540	)*1px) translateY(0px) translateZ(200*sin(	0.7540	)*1px);}
+  14.0%	{transform: translateX(200*cos(	0.8796	)*1px) translateY(0px) translateZ(200*sin(	0.8796	)*1px);}
+  16.0%	{transform: translateX(200*cos(	1.0053	)*1px) translateY(0px) translateZ(200*sin(	1.0053	)*1px);}
+  18.0%	{transform: translateX(200*cos(	1.1310	)*1px) translateY(0px) translateZ(200*sin(	1.1310	)*1px);}
+  20.0%	{transform: translateX(200*cos(	1.2566	)*1px) translateY(0px) translateZ(200*sin(	1.2566	)*1px);}
+  22.0%	{z-index:10;transform: translateX(200*cos(	1.3823	)*1px) translateY(0px) translateZ(200*sin(	1.3823	)*1px);}
+  24.0%	{transform: translateX(200*cos(	1.5080	)*1px) translateY(0px) translateZ(200*sin(	1.5080	)*1px);}
+  26.0%	{transform: translateX(200*cos(	1.6336	)*1px) translateY(0px) translateZ(200*sin(	1.6336	)*1px);}
+  28.0%	{transform: translateX(200*cos(	1.7593	)*1px) translateY(0px) translateZ(200*sin(	1.7593	)*1px);}
+  30.0%	{transform: translateX(200*cos(	1.8850	)*1px) translateY(0px) translateZ(200*sin(	1.8850	)*1px);}
+  32.0%	{transform: translateX(200*cos(	2.0106	)*1px) translateY(0px) translateZ(200*sin(	2.0106	)*1px);}
+  34.0%	{transform: translateX(200*cos(	2.1363	)*1px) translateY(0px) translateZ(200*sin(	2.1363	)*1px);}
+  36.0%	{transform: translateX(200*cos(	2.2619	)*1px) translateY(0px) translateZ(200*sin(	2.2619	)*1px);}
+  38.0%	{transform: translateX(200*cos(	2.3876	)*1px) translateY(0px) translateZ(200*sin(	2.3876	)*1px);}
+  40.0%	{transform: translateX(200*cos(	2.5133	)*1px) translateY(0px) translateZ(200*sin(	2.5133	)*1px);}
+  42.0%	{transform: translateX(200*cos(	2.6389	)*1px) translateY(0px) translateZ(200*sin(	2.6389	)*1px);}
+  44.0%	{transform: translateX(200*cos(	2.7646	)*1px) translateY(0px) translateZ(200*sin(	2.7646	)*1px);}
+  46.0%	{transform: translateX(200*cos(	2.8903	)*1px) translateY(0px) translateZ(200*sin(	2.8903	)*1px);}
+  48.0%	{transform: translateX(200*cos(	3.0159	)*1px) translateY(0px) translateZ(200*sin(	3.0159	)*1px);}
+  50.0%	{transform: translateX(200*cos(	3.1416	)*1px) translateY(0px) translateZ(200*sin(	3.1416	)*1px);}
+  52.0%	{transform: translateX(200*cos(	3.2673	)*1px) translateY(0px) translateZ(200*sin(	3.2673	)*1px);}
+  54.0%	{transform: translateX(200*cos(	3.3929	)*1px) translateY(0px) translateZ(200*sin(	3.3929	)*1px);}
+  56.0%	{transform: translateX(200*cos(	3.5186	)*1px) translateY(0px) translateZ(200*sin(	3.5186	)*1px);}
+  58.0%	{transform: translateX(200*cos(	3.6442	)*1px) translateY(0px) translateZ(200*sin(	3.6442	)*1px);}
+  60.0%	{transform: translateX(200*cos(	3.7699	)*1px) translateY(0px) translateZ(200*sin(	3.7699	)*1px);}
+  62.0%	{transform: translateX(200*cos(	3.8956	)*1px) translateY(0px) translateZ(200*sin(	3.8956	)*1px);}
+  64.0%	{transform: translateX(200*cos(	4.0212	)*1px) translateY(0px) translateZ(200*sin(	4.0212	)*1px);}
+  66.0%	{z-index:-10;transform: translateX(200*cos(	4.1469	)*1px) translateY(0px) translateZ(200*sin(	4.1469	)*1px);}
+  68.0%	{transform: translateX(200*cos(	4.2726	)*1px) translateY(0px) translateZ(200*sin(	4.2726	)*1px);}
+  70.0%	{transform: translateX(200*cos(	4.3982	)*1px) translateY(0px) translateZ(200*sin(	4.3982	)*1px);}
+  72.0%	{transform: translateX(200*cos(	4.5239	)*1px) translateY(0px) translateZ(200*sin(	4.5239	)*1px);}
+  74.0%	{transform: translateX(200*cos(	4.6496	)*1px) translateY(0px) translateZ(200*sin(	4.6496	)*1px);}
+  76.0%	{transform: translateX(200*cos(	4.7752	)*1px) translateY(0px) translateZ(200*sin(	4.7752	)*1px);}
+  78.0%	{transform: translateX(200*cos(	4.9009	)*1px) translateY(0px) translateZ(200*sin(	4.9009	)*1px);}
+  80.0%	{transform: translateX(200*cos(	5.0265	)*1px) translateY(0px) translateZ(200*sin(	5.0265	)*1px);}
+  82.0%	{transform: translateX(200*cos(	5.1522	)*1px) translateY(0px) translateZ(200*sin(	5.1522	)*1px);}
+  84.0%	{transform: translateX(200*cos(	5.2779	)*1px) translateY(0px) translateZ(200*sin(	5.2779	)*1px);}
+  86.0%	{transform: translateX(200*cos(	5.4035	)*1px) translateY(0px) translateZ(200*sin(	5.4035	)*1px);}
+  88.0%	{transform: translateX(200*cos(	5.5292	)*1px) translateY(0px) translateZ(200*sin(	5.5292	)*1px);}
+  90.0%	{transform: translateX(200*cos(	5.6549	)*1px) translateY(0px) translateZ(200*sin(	5.6549	)*1px);}
+  92.0%	{transform: translateX(200*cos(	5.7805	)*1px) translateY(0px) translateZ(200*sin(	5.7805	)*1px);}
+  94.0%	{transform: translateX(200*cos(	5.9062	)*1px) translateY(0px) translateZ(200*sin(	5.9062	)*1px);}
+  96.0%	{transform: translateX(200*cos(	6.0319	)*1px) translateY(0px) translateZ(200*sin(	6.0319	)*1px);}
+  98.0%	{transform: translateX(200*cos(	6.1575	)*1px) translateY(0px) translateZ(200*sin(	6.1575	)*1px);}
+  100.0%	{transform: translateX(200*cos(	6.2832	)*1px) translateY(0px) translateZ(200*sin(	6.2832	)*1px);}
+
+
+
+
+
+  /*0%    {transform: translateX(200*cos(2*3.14159)*1px) translateY(0px) translateZ(200*sin(2*3.14159)*1px);}
+  10%    {transform: translateX(200*cos(1*2*3.14159/10)*1px) translateY(0px) translateZ(200*sin(1*2*3.14159/10)*1px);}
+  20%    {transform: translateX(200*cos(2*2*3.14159/10)*1px) translateY(0px) translateZ(200*sin(2*2*3.14159/10)*1px);}
+  30%    {transform: translateX(200*cos(3*2*3.14159/10)*1px) translateY(0px) translateZ(200*sin(3*2*3.14159/10)*1px);}
+  40%    {transform: translateX(200*cos(4*2*3.14159/10)*1px) translateY(0px) translateZ(200*sin(4*2*3.14159/10)*1px);}
+  50%    {transform: translateX(200*cos(5*2*3.14159/10)*1px) translateY(0px) translateZ(200*sin(5*2*3.14159/10)*1px);}
+  60%    {transform: translateX(200*cos(6*2*3.14159/10)*1px) translateY(0px) translateZ(200*sin(6*2*3.14159/10)*1px);}
+  70%    {transform: translateX(200*cos(7*2*3.14159/10)*1px) translateY(0px) translateZ(200*sin(7*2*3.14159/10)*1px);}
+  80%    {transform: translateX(200*cos(8*2*3.14159/10)*1px) translateY(0px) translateZ(200*sin(8*2*3.14159/10)*1px);}
+  90%    {transform: translateX(200*cos(9*2*3.14159/10)*1px) translateY(0px) translateZ(200*sin(9*2*3.14159/10)*1px);}
+  100%    {transform: translateX(200*cos(2*3.14159)*1px) translateY(0px) translateZ(200*sin(2*3.14159)*1px);}*/
+}
+@keyframes rotateAntiMove {
+  0%    {transform: translateX(0px) translateY(0px) translateZ(0px);}
+  50%   {transform: translateX(200px) translateY(-180px) translateZ(-500px);}
+  100%  {transform: translateX(0px) translateY(0px) translateZ(0px);}
+}
+@keyframes circleMove {
+  0%    {transform:translateX(0px) translateY(0px);opacity:1;}
+  25%   {transform:translateX(100px) translateY(0px);opacity:1;}
+  50%   {transform:translateX(100px) translateY(100px);opacity:1;}
+  75%   {transform:translateX(0px) translateY(100px);opacity:1;}
+  100%  {transform:translateX(0px) translateY(0px);opacity:1;}
+
+
+}

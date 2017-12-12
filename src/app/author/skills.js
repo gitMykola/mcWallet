@@ -10,7 +10,7 @@ module.exports = {
         applications:{
             web:100,
             mobile:40,
-            dapp:60
+            blockchain:60,
         }
     },
     skills:{
