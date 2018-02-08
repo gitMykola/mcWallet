@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { TFormComponent } from '../test/index';
+import {config} from '../config';
 
 @Component({
     moduleId: module.id,
     templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-    title = '';
-    constructor() {}
+    title: string;
+    exit: boolean;
+    constructor() {
+        this.title = config().app.name_full;
+        this.exit = true;
+    }
     ngOnInit() {
-        this.title = 'mcWallet Home';
     }
 }

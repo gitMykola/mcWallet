@@ -1,9 +1,41 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {config} from '../config';
+import * as $ from 'jquery';
+import {Subscription} from 'rxjs/Subscription';
+import {ResizeService} from '../_services/resize';
 
 @Component({
+    selector: 'app-wallet',
     moduleId: module.id,
     templateUrl: './wallet.component.html'
 })
-export class WalletComponent {
-    tit = 'mcWallet';
+export class WalletComponent implements OnInit, OnDestroy, AfterViewInit {
+    currencies: any;
+    selectedCurrency: any;
+    resize: Subscription;
+    constructor (private rs: ResizeService) {
+        this.currencies = config().currencies;
+        this.selectedCurrency = {
+            currency: '',
+            network: ''
+        };
+    }
+    ngOnInit () {
+        this.resize = this.rs.onResize$.subscribe(data => this.setDom(data));
+    }
+    ngOnDestroy() {
+        if (this.resize) {
+            this.rs.onResize$.unsubscribe();
+        }
+    }
+    ngAfterViewInit () {
+
+        this.setDom({height: window.innerHeight});
+    }
+    select(curr) {
+        this.selectedCurrency.currency = curr;
+    }
+    setDom(data) {
+        $('#mc-wallet').css('height', data.height);
+    }
 }

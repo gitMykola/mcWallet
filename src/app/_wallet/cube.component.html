@@ -1,0 +1,20 @@
+<div id="cube">
+    <div class="poli">
+        <div class="poligon">
+            <button class="wall"
+                    *ngFor="let wall of walls" (click)="select(wall.symbol)">
+                <div class="wall-coin">
+                    <p class="wall-up fa">&#xf15a;</p>
+                    <p class="wall-down">{{wall.symbol}}</p>
+                </div>
+            </button>
+            <button class="wall"
+                    (click)="select(walls[0].symbol)">
+                <div class="wall-coin">
+                    <p class="wall-up fa">&#xf15a;</p>
+                    <p class="wall-down">{{walls[0].symbol}}</p>
+                </div>
+            </button>
+        </div>
+    </div>
+</div>

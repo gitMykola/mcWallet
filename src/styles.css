@@ -1,3 +1,4 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
 .rotAnim {
   animation-name: rotateMove;
   animation-duration: 50s;
@@ -220,6 +221,38 @@
   100% {
     transform: translateX(0px) translateY(0px);
     opacity: 1;
+  }
+}
+html,
+body {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+#app-mc {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+#app-mc #mc-wallet {
+  overflow: hidden;
+  color: #ffcd00;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('assets/images/bitcoin.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+#app-mc .row {
+  width: 100%;
+  margin: 0;
+  padding: 15px;
+}
+.background-img-dark {
+  background-size: cover;
+  background-attachment: fixed;
+}
+@media screen and (max-width: 768px) {
+  #app-mc .row {
+    padding: 5px;
   }
 }
 .author {

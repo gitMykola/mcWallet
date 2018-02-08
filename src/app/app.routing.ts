@@ -1,10 +1,10 @@
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/index';
-import { RegisterComponent } from './register/index';
-import { AuthorComponent } from './author/index';
+import { HomeComponent } from './home';
+import { LoginComponent } from './login';
+import { RegisterComponent } from './register';
+import { AuthorComponent } from './author';
 
-import { WalletComponent } from './_wallet/index';
+import { WalletComponent } from './_wallet';
 // import { AuthGuard } from './_guards/index';
 
 const appRoutes: Routes = [

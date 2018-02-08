@@ -1,0 +1,39 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+@mc_color_main_light: rgb(255, 205, 0);
+@mc_color_main_dark: rgb(0,0,0);
+html, body {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+body {
+
+}
+#app-mc {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  #mc-wallet {
+    overflow: hidden;
+    color: @mc_color_main_light;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+      url('./assets/images/bitcoin.jpg');
+    .background-img-dark;
+  }
+  .row {
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+  }
+}
+.background-img-dark {
+  background-size: cover;
+  background-attachment: fixed;
+}
+@media screen and (max-width:768px) {
+  #app-mc {
+    .row {
+      padding: 5px;
+    }
+  }
+}

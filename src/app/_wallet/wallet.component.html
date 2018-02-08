@@ -1,2 +1,5 @@
-<div>{{tit}}</div>
-<p>FUUUUUUUUUUUUUUUUUUUUUUUUUUUUUCK!!!!!!!!!!!!!!!!!!!!!!!!</p>
+<div class="row" id="mc-wallet">
+    <h3>WALLET</h3>
+    <h5>{{selectedCurrency.currency}}</h5>
+    <app-cube [walls]="currencies" (onSelect)="select($event)"></app-cube>
+</div>

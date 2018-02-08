@@ -14,6 +14,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { FormsModule } from '@angular/forms';
+import {DigitsComponent} from './home/digits.component';
+import {FeaturesComponent} from './home/features.component';
+import {FooterComponent} from './home/footer.component';
+import {HowtoComponent} from './home/howto.component';
+import {CubeComponent} from './_wallet/cube.component';
+import {ResizeService} from './_services/resize';
 
 @NgModule({
   declarations: [
@@ -24,6 +30,11 @@ import { FormsModule } from '@angular/forms';
     WalletComponent,
     TFormComponent,
       AuthorComponent,
+      DigitsComponent,
+      HowtoComponent,
+      FeaturesComponent,
+      FooterComponent,
+      CubeComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +44,9 @@ import { FormsModule } from '@angular/forms';
       NgbModule.forRoot(),
       HttpModule
   ],
-  providers: [],
+  providers: [
+      ResizeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
