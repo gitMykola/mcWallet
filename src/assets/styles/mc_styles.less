@@ -14,6 +14,8 @@ body {
   padding: 0;
   width: 100%;
   #mc-wallet {
+    display: block;
+    position: relative;
     overflow: hidden;
     color: @mc_color_main_light;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
@@ -30,10 +32,35 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
-@media screen and (max-width:768px) {
+.mc-btn-trans {
+  padding: 5px 20px;
+  border: 1px solid @mc_color_main_light;
+  border-radius: 5px;
+  background: @mc_color_main_dark;
+  background: linear-gradient(@mc_color_main_light 2%, transparent, transparent);
+  color: @mc_color_main_light;
+  font-size: large;
+}
+.mc-nav-bottom {
+  display: block;
+  position: absolute;
+  bottom: 80px;
+  text-align: center;
+  width: 100%;
+  padding: 10px 20px;
+}
+@media screen and (max-width: 768px) {
   #app-mc {
     .row {
       padding: 5px;
+    }
+  }
+}
+@media screen and (max-height: 480px) {
+  #app-mc {
+    .mc-nav-bottom {
+      text-align: right;
+      bottom: 40px;
     }
   }
 }

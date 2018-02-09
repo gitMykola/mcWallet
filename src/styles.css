@@ -235,6 +235,8 @@ body {
   width: 100%;
 }
 #app-mc #mc-wallet {
+  display: block;
+  position: relative;
   overflow: hidden;
   color: #ffcd00;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('assets/images/bitcoin.jpg');
@@ -250,9 +252,32 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+.mc-btn-trans {
+  padding: 5px 20px;
+  border: 1px solid #ffcd00;
+  border-radius: 5px;
+  background: #000000;
+  background: linear-gradient(#ffcd00 2%, transparent, transparent);
+  color: #ffcd00;
+  font-size: large;
+}
+.mc-nav-bottom {
+  display: block;
+  position: absolute;
+  bottom: 80px;
+  text-align: center;
+  width: 100%;
+  padding: 10px 20px;
+}
 @media screen and (max-width: 768px) {
   #app-mc .row {
     padding: 5px;
+  }
+}
+@media screen and (max-height: 480px) {
+  #app-mc .mc-nav-bottom {
+    text-align: right;
+    bottom: 40px;
   }
 }
 .author {

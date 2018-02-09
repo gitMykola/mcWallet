@@ -13,12 +13,14 @@ export class WalletComponent implements OnInit, OnDestroy, AfterViewInit {
     currencies: any;
     selectedCurrency: any;
     resize: Subscription;
+    open: Boolean;
     constructor (private rs: ResizeService) {
         this.currencies = config().currencies;
         this.selectedCurrency = {
             currency: '',
             network: ''
         };
+        this.open = false;
     }
     ngOnInit () {
         this.resize = this.rs.onResize$.subscribe(data => this.setDom(data));
@@ -37,5 +39,9 @@ export class WalletComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     setDom(data) {
         $('#mc-wallet').css('height', data.height);
+    }
+    openWallet (event) {
+        $(event.target).fadeOut();
+        this.open = true;
     }
 }

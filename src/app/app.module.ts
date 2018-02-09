@@ -20,6 +20,7 @@ import {FooterComponent} from './home/footer.component';
 import {HowtoComponent} from './home/howto.component';
 import {CubeComponent} from './_wallet/cube.component';
 import {ResizeService} from './_services/resize';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -38,11 +39,12 @@ import {ResizeService} from './_services/resize';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     routing,
     ReactiveFormsModule,
-      NgbModule.forRoot(),
-      HttpModule
+    NgbModule.forRoot(),
+    HttpModule
   ],
   providers: [
       ResizeService

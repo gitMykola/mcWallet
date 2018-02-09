@@ -1,4 +1,7 @@
-import {Component, OnInit, Input, Output, EventEmitter, OnDestroy, AfterViewInit} from '@angular/core';
+import {
+    Component, OnInit, Input, Output, EventEmitter, OnDestroy, AfterViewInit, OnChanges,
+    SimpleChange
+} from '@angular/core';
 import * as $ from 'jquery';
 import {ResizeService} from '../_services/resize';
 import {Subscription} from 'rxjs/Subscription';
@@ -8,10 +11,11 @@ import {Subscription} from 'rxjs/Subscription';
     templateUrl: './cube.component.html',
     styleUrls: ['./cube.css']
 })
-export class CubeComponent implements OnInit, OnDestroy, AfterViewInit {
+export class CubeComponent implements OnInit, OnDestroy, AfterViewInit, OnChanges {
     resize: Subscription;
     @Input() walls: any;
     @Output() onSelect = new EventEmitter<string>();
+    @Input() open: boolean;
     constructor (private rs: ResizeService) {}
     ngOnInit () {
         this.resize = this.rs.onResize$.subscribe(data => this.setCube(data));
@@ -26,6 +30,11 @@ export class CubeComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     select (wall: string) {
         this.onSelect.emit(wall);
+    }
+    ngOnChanges (changes: {[chopen: string]: SimpleChange}) {
+        if (changes.open.currentValue) {
+            this.setTabs();
+        }
     }
     setCube (data) {
         const poli = document.querySelectorAll('#cube .poli'),
@@ -67,10 +76,7 @@ export class CubeComponent implements OnInit, OnDestroy, AfterViewInit {
     setTabs () {
         const poligon = document.querySelectorAll('#cube .poli .poligon'),
             cubeWalls = document.querySelectorAll('#cube .poli .poligon .wall');
-        $(cubeWalls[0])
-            .css({
-                transform: 'translateX(-400px) translateY(0px)' +
-                ' translateZ(0px)'
-            });
+        $(cubeWalls[0]).addClass('active-0');
+        $(poligon.item(0)).removeClass('rotCube');
     }
 }

@@ -1,9 +1,9 @@
 <div id="cube">
     <div class="poli">
-        <div class="poligon">
-            <button class="wall"
+        <div class="poligon rotCube">
+            <button class="wall text-center"
                     *ngFor="let wall of walls" (click)="select(wall.symbol)">
-                <div class="wall-coin">
+                <div class="wall-coin text-center">
                     <p class="wall-up fa">&#xf15a;</p>
                     <p class="wall-down">{{wall.symbol}}</p>
                 </div>
