@@ -45,6 +45,9 @@ export class WalletComponent implements OnInit, OnDestroy, AfterViewInit {
     openWallet (event) {
         // $(event.target).fadeOut();
         this.open = !this.open;
+        this.setBackground();
+    }
+    setBackground () {
         if (this.open) {
             $('#mc-wallet').css({
                 'background': 'linear-gradient(rgba(0,0,0,0.7),' +

@@ -18,86 +18,89 @@ import {anim} from '../../components/animations';
             transition('close => inactive', [
                 group([
                     query('.poligon', [
-                        useAnimation(anim.poligonInactive,
+                        useAnimation(anim.poligonActive)
+                    ]),
+                    query('button', [
+                        useAnimation(anim.fadeIn,
                             {params: {
-                                time: 1
+                                    time: 2000
                                 }})
                     ]),
                     query('.wall:nth-child(1) button', [
                         // style('*'),
-                        useAnimation(anim.wallInactive, {
+                        useAnimation(anim.wallActive, {
                             params: {
                                 tX: -100,
                                 tY: -100,
                                 tZ: +100,
                                 dY: 0,
                                 dX: 0,
-                                time: 1
+                                time: 5000
                             }
                         })
                     ]),
                     query('.wall:nth-child(2) button', [
                         // style('*'),
-                        useAnimation(anim.wallInactive, {
+                        useAnimation(anim.wallActive, {
                             params: {
                                 tX: -200,
                                 tY: -100 - 80,
                                 tZ: 0,
                                 dY: 90,
                                 dX: 0,
-                                time: 1
+                                time: 5000
                             }
                         })
                     ]),
                     query('.wall:nth-child(3) button', [
                         // style('*'),
-                        useAnimation(anim.wallInactive, {
+                        useAnimation(anim.wallActive, {
                             params: {
                                 tX: -100,
                                 tY: -100 - 80 * 2,
                                 tZ: -100,
                                 dY: 180,
                                 dX: 0,
-                                time: 1
+                                time: 5000
                             }
                         })
                     ]),
                     query('.wall:nth-child(4) button', [
                         // style('*'),
-                        useAnimation(anim.wallInactive, {
+                        useAnimation(anim.wallActive, {
                             params: {
                                 tX: 0,
                                 tY: -100 - 80 * 3,
                                 tZ: 0,
                                 dY: -90,
                                 dX: 0,
-                                time: 1
+                                time: 5000
                             }
                         })
                     ]),
                     query('.wall:nth-child(5) button', [
                         // style('*'),
-                        useAnimation(anim.wallInactive, {
+                        useAnimation(anim.wallActive, {
                             params: {
                                 tX: -100,
                                 tY: - 80 * 4,
                                 tZ: 0,
                                 dY: 0,
                                 dX: 90,
-                                time: 1
+                                time: 5000
                             }
                         })
                     ]),
                     query('.wall:nth-child(6) button', [
                         // style('*'),
-                        useAnimation(anim.wallInactive, {
+                        useAnimation(anim.wallActive, {
                             params: {
                                 tX: -100,
                                 tY: -200 - 80 * 5,
                                 tZ: 0,
                                 dY: 0,
                                 dX: -90,
-                                time: 1
+                                time: 5000
                             }
                         })
                     ]),
@@ -309,7 +312,7 @@ import {anim} from '../../components/animations';
         ])
     ]
 })
-export class CubeAComponent implements OnInit, OnDestroy, AfterViewInit, OnChanges {
+export class CubeAComponent implements OnInit, OnDestroy, OnChanges {
     resize: Subscription;
     load: Subscription;
     state: string;
@@ -320,10 +323,10 @@ export class CubeAComponent implements OnInit, OnDestroy, AfterViewInit, OnChang
     constructor (
         private rs: ResizeService,
         public trans: TranslatorService) {
-        this.state = 'active';
+        this.state = 'close';
     }
     ngOnInit () {
-        this.stateChange();
+        setTimeout(() => this.state = 'inactive', 1);
         this.resizeAmmounts = false;
         this.resize = this.rs.onResize$.subscribe(data => this.set(data));
         this.load = this.rs.onLoad$.subscribe(data => this.set(data));
@@ -336,27 +339,22 @@ export class CubeAComponent implements OnInit, OnDestroy, AfterViewInit, OnChang
             this.rs.onLoad$.unsubscribe();
         }
     }
-    ngAfterViewInit () {
-        // this.state = this.open ? 'active' : 'inactive';
-    }
     select (wall: string) {
         this.onSelect.emit(wall);
     }
     ngOnChanges (changes: {[chopen: string]: SimpleChange}) {
-        this.stateCubeChange (changes.open.currentValue);
+        this.stateCubeChange ();
     }
     set (data) {
         this.resizeAmmounts = data.width < 580;
     }
-    stateChange() {
+    stateCubeChange () {
         console.log(this.state);
-        this.state = this.open ?
-            'active' : 'inactive';
-        console.log(this.state);
-    }
-    stateCubeChange (data) {
-        console.log(this.state);
-        this.state = this.open ? 'active' : 'inactive';
+        if (this.state !== 'close') {
+            this.state = this.open ? 'active' : 'inactive';
+        } else {
+            this.state = this.open ? 'active' : this.state;
+        }
         console.log(this.state);
     }
 }

@@ -10,7 +10,7 @@ export const anim = {
                     transform: 'perspective({{ per }}px) rotateX({{ dX }}deg) rotateY({{ dY }}deg)'
                 }))
         ],
-        {params: {time: 20000, per: 1200, dX: '360', dY: '360'}}),
+        {params: {time: 36000000, per: 1200, dX: '360000', dY: '360000'}}),
     wallActive: animation([
             animate('{{ time }}ms cubic-bezier(0, 1, 0, 1)', keyframes([
                 style({
@@ -54,7 +54,7 @@ export const anim = {
                 offset: 1}),
         ]))
     ], {params: {
-            time: 300
+            time: 3000
         }}),
     poligonInactive: animation([
             style({
