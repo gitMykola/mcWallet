@@ -1,8 +1,11 @@
-<div class="row" id="mc-wallet">
-    <app-cube
+<div class="" id="mc-wallet">
+    <app-start-text [open]="open"></app-start-text>
+    <app-cube-a
             [open]="open"
-            [walls]="currencies" (onSelect)="select($event)"></app-cube>
+            [walls]="currencies" (onSelect)="select($event)"></app-cube-a>
     <div class="mc-nav-bottom">
-        <button class="mc-btn-trans" (click)="openWallet($event)">Open</button>
+        <button class="mc-btn-trans-bottom" (click)="openWallet($event)">
+            {{trans.translate('buttons.enter')}}
+        </button>
     </div>
 </div>

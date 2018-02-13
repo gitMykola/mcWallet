@@ -1,13 +1,21 @@
+@font-face {
+  font-family: mcFont;
+  src: url('./assets/fonts/RobotoMono-Light.ttf');
+}
+@import "https://fonts.googleapis.com/css?family=Roboto+Mono:400,300,600,700,800";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
 @mc_color_main_light: rgb(255, 205, 0);
 @mc_color_main_dark: rgb(0,0,0);
+
+  .font {
+    font-family: 'Roboto Mono', serif;
+    font-weight: 100;
+  }
+
 html, body {
   display: block;
   position: relative;
   width: 100%;
-}
-body {
-
 }
 #app-mc {
   margin: 0;
@@ -16,11 +24,11 @@ body {
   #mc-wallet {
     display: block;
     position: relative;
-    overflow: hidden;
+    //overflow: hidden;
     color: @mc_color_main_light;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)),
       url('./assets/images/bitcoin.jpg');
-    .background-img-dark;
+    .background-img;
   }
   .row {
     width: 100%;
@@ -28,7 +36,7 @@ body {
     padding: 15px;
   }
 }
-.background-img-dark {
+.background-img {
   background-size: cover;
   background-attachment: fixed;
 }
@@ -41,13 +49,39 @@ body {
   color: @mc_color_main_light;
   font-size: large;
 }
+.mc-btn-trans-bottom {
+  position: relative;
+  .font;
+  margin: 0 20px;
+  padding: 5px 30px;
+  border: none;
+  border-left: 1px solid rgba(255,205,5,0.5);
+  border-right: 1px solid rgba(255,205,5,0.5);
+  border-radius: 5px;
+  background: transparent;//rgba(255,205,5,0.1);
+  //background: linear-gradient(transparent 100%, @mc_color_main_light);
+  color: @mc_color_main_light;
+  font-size: xx-large;
+  transition: background 0.5s, div 1s;
+  overflow: hidden;
+  div {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    left:0;
+    border-radius: 5px;
+    background: linear-gradient(transparent, @mc_color_main_light, transparent);
+  }
+}
 .mc-nav-bottom {
   display: block;
   position: absolute;
   bottom: 80px;
   text-align: center;
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 0;
 }
 @media screen and (max-width: 768px) {
   #app-mc {
@@ -60,7 +94,7 @@ body {
   #app-mc {
     .mc-nav-bottom {
       text-align: right;
-      bottom: 40px;
+      bottom: 20px;
     }
   }
 }

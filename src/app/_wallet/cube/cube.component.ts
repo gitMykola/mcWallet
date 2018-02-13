@@ -3,7 +3,7 @@ import {
     SimpleChange
 } from '@angular/core';
 import * as $ from 'jquery';
-import {ResizeService} from '../_services/resize';
+import {ResizeService} from '../../_services/resize';
 import {Subscription} from 'rxjs/Subscription';
 
 @Component({

@@ -9,24 +9,34 @@ export function config () { return {
     },
     currencies: [
         {
-            symbol: 'ETH',
-            networks: ['ropsten', 'livenet']
-        },
-        {
             symbol: 'BTC',
-            networks: ['testnet', 'livenet']
+            networks: ['testnet', 'livenet'],
+            img: './assets/images/bitcoin.png'
         },
         {
-            symbol: 'LTC',
-            networks: ['testnet', 'livenet']
-        },
-        {
-            symbol: 'BTG',
-            networks: ['testnet', 'livenet']
+            symbol: 'ETH',
+            networks: ['ropsten', 'livenet'],
+            img: './assets/images/bitcoin.png'
         },
         {
             symbol: 'BCH',
-            networks: ['testnet', 'livenet']
+            networks: ['testnet', 'livenet'],
+            img: './assets/images/bitcoin.png'
+        },
+        {
+            symbol: 'LTC',
+            networks: ['testnet', 'livenet'],
+            img: './assets/images/bitcoin.png'
+        },
+        {
+            symbol: 'BTG',
+            networks: ['testnet', 'livenet'],
+            img: './assets/images/bitcoin.png'
+        },
+        {
+            symbol: 'ETH',
+            networks: ['ropsten', 'livenet'],
+            img: './assets/images/bitcoin.png'
         }
     ]
 }; }

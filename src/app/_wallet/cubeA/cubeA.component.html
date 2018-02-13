@@ -1,0 +1,22 @@
+<div id="cube-a" [@poligon]="state">
+    <div class="poligon row">
+        <div class="wall col-xs-12 col-md-8 col-md-offset-2"
+             *ngFor="let wall of walls">
+            <button class=""
+                    (click)="select(wall.symbol)">
+                <div class="wall-background"></div>
+                <div class="wall-coin">
+                    <img class="wall-up fa" src="{{wall.img}}"/>
+                    <p class="wall-down">{{wall.symbol}}</p>
+                </div>
+                <p class="wall-name">{{trans.translate('currencies.' + wall.symbol)}}</p>
+                <app-ammount class="wall-ammount"
+                             [resize]="resizeAmmounts"
+                             [ammount]="wall.ammount"
+                             [big]="2" [small]="4"></app-ammount>
+            </button>
+            <div class="wall-header"></div>
+            <div class="wall-content"></div>
+        </div>
+    </div>
+</div>

@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { routing } from './app.routing';
 
-import { AuthorComponent } from './author/index';
+import { AuthorComponent } from './author';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/index';
-import { LoginComponent } from './login/index';
-import { RegisterComponent } from './register/index';
-import { WalletComponent } from './_wallet/index';
-import { TFormComponent } from './test/tForm.component';
+import { HomeComponent } from './home';
+import { LoginComponent } from './login';
+import { RegisterComponent } from './register';
+import { WalletComponent } from './_wallet';
+import { TFormComponent } from './test';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -18,9 +18,13 @@ import {DigitsComponent} from './home/digits.component';
 import {FeaturesComponent} from './home/features.component';
 import {FooterComponent} from './home/footer.component';
 import {HowtoComponent} from './home/howto.component';
-import {CubeComponent} from './_wallet/cube.component';
+import {CubeComponent} from './_wallet/cube/cube.component';
 import {ResizeService} from './_services/resize';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TranslatorService} from './_services/translator.service';
+import {CubeAComponent} from './_wallet/cubeA/cubeA.component';
+import {StartTextComponent} from './_wallet/startText/starttext.component';
+import {AmmountComponent} from './components/ammount.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
       HowtoComponent,
       FeaturesComponent,
       FooterComponent,
-      CubeComponent
+      CubeComponent,
+      CubeAComponent,
+      StartTextComponent,
+      AmmountComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +54,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     HttpModule
   ],
   providers: [
-      ResizeService
+      ResizeService,
+      TranslatorService
   ],
   bootstrap: [AppComponent]
 })
