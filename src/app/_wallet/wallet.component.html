@@ -1,5 +1,10 @@
 <div class="" id="mc-wallet">
-    <app-start-text [open]="open"></app-start-text>
+    <app-start-text [open]="open"
+                    [text_1]="trans.translate('app.start_1')"
+                    [text_2]="trans.translate('app.start_2')"
+                    [text_3]="trans.translate('app.start_3')"
+                    [text_4]="trans.translate('app.start_4')">
+    </app-start-text>
     <app-cube-a
             [open]="open"
             [walls]="currencies" (onSelect)="select($event)"></app-cube-a>

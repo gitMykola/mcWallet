@@ -346,7 +346,7 @@ export class CubeAComponent implements OnInit, OnDestroy, OnChanges {
         this.stateCubeChange ();
     }
     set (data) {
-        this.resizeAmmounts = data.width < 580;
+        this.resizeAmmounts = data.width < 768;
     }
     stateCubeChange () {
         console.log(this.state);

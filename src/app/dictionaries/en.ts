@@ -55,7 +55,11 @@ export const EN = {
         title_1: 'Triumf ',
         title_2: 'Coin',
         discription: 'Crypto currency application',
-        network: 'Network'
+        network: 'Network',
+        start_1: 'CYRPTO',
+        start_2: 'CURRENCY',
+        start_3: 'Buy & Sell',
+        start_4: 'MULTI COIN WALLET'
     },
     tips: {
         add_account: ['Application generate new private key of chosen network, then transform this one to key file and upload to you.',

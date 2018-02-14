@@ -55,7 +55,11 @@ export const RU = {
         title_1: 'Триумф ',
         title_2: 'Коин',
         discription: 'Приложение для работы с криптовалютами',
-        network: 'Сеть'
+        network: 'Сеть',
+        start_1: 'КРИПТО',
+        start_2: 'ВАЛЮТА',
+        start_3: 'Купить & Продать',
+        start_4: 'MULTI COIN WALLET'
     },
     tips: {
         add_account: ['Приложение генерирует новый закрытый ключ выбранной сети,',
