@@ -7,14 +7,19 @@ import {
     trigger, useAnimation
 } from '@angular/animations';
 import {anim} from '../../components/animations';
-import set = Reflect.set;
 
 @Component({
     selector: 'app-start-text',
     template: `
         <div class="start-text" [@startText]="open">
             <p>{{text_1}}<span>{{text_2}}</span><span></span></p>
-            <p>{{text_3}}<span>{{text_4}}</span></p>
+            <p>
+                <span>
+                    <span>{{text_4}}</span>
+                    <span>{{text_5}}</span>
+                </span>
+                <span>{{text_3}}</span>
+            </p>
             <i></i>
         </div>
     `,
@@ -32,14 +37,16 @@ import set = Reflect.set;
             margin: 0;
             padding: 3px;
             color: rgb(255,255,255);
+            line-height: 1;
         }
         .start-text p:nth-child(1) {
-            top: 30px;
+            top: 25px;
             left: 30px;
             font-size: 30px;
             color: rgb(255,205,0);
         }
         .start-text p:nth-child(1) span {
+            font-family: mcFontBold;
             font-size: 17px;
             font-weight: 800;
             color: rgb(255,255,255);
@@ -48,7 +55,7 @@ import set = Reflect.set;
         .start-text p:nth-child(1) span:nth-child(2) {
             display: block;
             position: absolute;
-            bottom: 5px;
+            bottom: 2px;
             left: 0;
             width: 100%;
             border-bottom: 2px solid rgb(255,205,0);
@@ -56,19 +63,36 @@ import set = Reflect.set;
         .start-text p:nth-child(2) {
             top: 30px;
             right: 50px;
-            font-size: 40px;
+            font-size: 27px;
+            font-family: mcFontBold;
+            line-height: 1;
         }
-        .start-text p:nth-child(2) span {
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            font-size: 10px;
+        .start-text p:nth-child(2) span:nth-child(1) {
+            display: inline-block;
+            width: 80px;
+            font-size: 12px;
             color: rgb(255,205,0);
-            padding-left: 6px;
-            text-align: justify;
-            letter-spacing: 8px;
+            //letter-spacing: 8px;
+            border-right: 2px solid rgb(255,205,0);
+        }
+        .start-text p:nth-child(2) span:nth-child(1) span:nth-child(2) {
+            letter-spacing: 5.8px;
+            margin: 0;
+        }
+        .start-text p:nth-child(2) span:nth-child(2) {
+            margin-left: -10px;
+            letter-spacing: -2px;
+            word-spacing: -10px;
+        }
+        @media screen and (max-width: 640px) {
+            .start-text p:nth-child(1) {
+                top: 10px;
+                left: 10px;
+            }
+            .start-text p:nth-child(2) {
+                top: 45px;
+                right: 10px;
+            }
         }
     `],
     animations: [
@@ -124,6 +148,7 @@ export class StartTextComponent implements OnInit, OnChanges {
     @Input() text_2: string;
     @Input() text_3: string;
     @Input() text_4: string;
+    @Input() text_5: string;
     state: boolean;
     constructor () {
     }
@@ -132,5 +157,5 @@ export class StartTextComponent implements OnInit, OnChanges {
     }
     ngOnChanges (changes: {[chopen: string]: SimpleChange}) {
         this.state = !this.open;
-    }
+    } // TODO Fix animation states with big delays
 }

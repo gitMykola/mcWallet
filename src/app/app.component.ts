@@ -17,7 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
     ) {}
     ngOnInit () {
         this.load = this.rs.onLoad$.subscribe(data => this.setElementsStyles());
-        this.trans.set('EN');
+        this.trans.set('RU');
     }
     ngOnDestroy () {
         if (this.load) {

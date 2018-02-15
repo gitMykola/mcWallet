@@ -1,6 +1,10 @@
 @font-face {
-  font-family: mcFont;
+  font-family: mcFontLight;
   src: url('./assets/fonts/RobotoMono-Light.ttf');
+}
+@font-face {
+  font-family: mcFontBold;
+  src: url('./assets/fonts/RobotoMono-Bold.ttf');
 }
 @import "https://fonts.googleapis.com/css?family=Roboto+Mono:400,300,600,700,800";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
@@ -8,9 +12,11 @@
 @mc_color_main_dark: rgb(0,0,0);
 
   .font {
-    font-family: 'Roboto Mono', serif;
-    font-weight: 100;
+    font-family: mcFontLight;
   }
+.fontBold {
+  font-family: mcFontBold;
+}
 h1,h2,h3,h4,h5,h6,p,span,label,a {
   .font;
 }

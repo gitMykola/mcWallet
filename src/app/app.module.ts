@@ -25,6 +25,7 @@ import {TranslatorService} from './_services/translator.service';
 import {CubeAComponent} from './_wallet/cubeA/cubeA.component';
 import {StartTextComponent} from './_wallet/startText/starttext.component';
 import {AmmountComponent} from './components/ammount.component';
+import {GoToTopComponent} from './components/goToTop.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {AmmountComponent} from './components/ammount.component';
       CubeComponent,
       CubeAComponent,
       StartTextComponent,
-      AmmountComponent
+      AmmountComponent,
+      GoToTopComponent
   ],
   imports: [
     BrowserModule,

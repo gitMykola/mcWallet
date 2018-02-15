@@ -59,7 +59,8 @@ export const RU = {
         start_1: 'КРИПТО',
         start_2: 'ВАЛЮТА',
         start_3: 'Купить & Продать',
-        start_4: 'MULTI COIN WALLET'
+        start_4: 'MULTI COIN',
+        start_5: 'WALLET'
     },
     tips: {
         add_account: ['Приложение генерирует новый закрытый ключ выбранной сети,',

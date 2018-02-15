@@ -59,7 +59,8 @@ export const EN = {
         start_1: 'CYRPTO',
         start_2: 'CURRENCY',
         start_3: 'Buy & Sell',
-        start_4: 'MULTI COIN WALLET'
+        start_4: 'MULTI COIN',
+        start_5: 'WALLET',
     },
     tips: {
         add_account: ['Application generate new private key of chosen network, then transform this one to key file and upload to you.',

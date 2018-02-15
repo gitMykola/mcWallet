@@ -225,12 +225,18 @@
   }
 }
 @font-face {
-  font-family: mcFont;
+  font-family: mcFontLight;
   src: url('assets/fonts/RobotoMono-Light.ttf');
 }
+@font-face {
+  font-family: mcFontBold;
+  src: url('assets/fonts/RobotoMono-Bold.ttf');
+}
 .font {
-  font-family: 'Roboto Mono', serif;
-  font-weight: 100;
+  font-family: mcFontLight;
+}
+.fontBold {
+  font-family: mcFontBold;
 }
 h1,
 h2,
@@ -242,8 +248,7 @@ p,
 span,
 label,
 a {
-  font-family: 'Roboto Mono', serif;
-  font-weight: 100;
+  font-family: mcFontLight;
 }
 html,
 body {
@@ -284,8 +289,7 @@ body {
 }
 .mc-btn-trans-bottom {
   position: relative;
-  font-family: 'Roboto Mono', serif;
-  font-weight: 100;
+  font-family: mcFontLight;
   margin: 0 20px;
   padding: 5px 30px;
   border: none;
