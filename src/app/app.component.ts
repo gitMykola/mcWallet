@@ -2,7 +2,7 @@ import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {TranslatorService} from './_services/translator.service';
 import * as $ from 'jquery';
 import {ResizeService} from './_services/resize';
-import {Subscription} from "rxjs/Subscription";
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
     moduleId: module.id,
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
     ) {}
     ngOnInit () {
         this.load = this.rs.onLoad$.subscribe(data => this.setElementsStyles());
-        this.trans.set('RU');
+        this.trans.set('EN');
     }
     ngOnDestroy () {
         if (this.load) {

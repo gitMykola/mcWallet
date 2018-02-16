@@ -1,8 +1,9 @@
-export function config () { return {
+export function config() {return {
     app: {
         name_full: 'MC Wallet',
         name_1: 'MC ',
-        name_2: 'Wallet'
+        name_2: 'Wallet',
+        default_lang: 'EN'
     },
     dev: {
         mode: 1
@@ -39,4 +40,5 @@ export function config () { return {
             img: './assets/images/bitcoin.png'
         }
     ]
-}; }
+};
+}

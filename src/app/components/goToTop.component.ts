@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import * as $ from 'jquery';
+import {ResizeService} from '../_services/resize';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
     selector: 'app-go-top',
@@ -10,7 +12,7 @@ import * as $ from 'jquery';
     `,
     styles: [`
         #go-to-top {
-        display: block;
+        display: none;
         position: fixed;
         bottom: 30px;
         right: 30px;
@@ -27,12 +29,30 @@ import * as $ from 'jquery';
         }
     `]
 })
-export class GoToTopComponent {
-    constructor () {
+export class GoToTopComponent implements OnInit, OnDestroy {
+    resize: Subscription;
+    constructor (
+        private rs: ResizeService
+    ) {
+    }
+    ngOnInit () {
+        this.resize = this.rs.onScroll$.subscribe(data => this.setDom(data));
+    }
+    ngOnDestroy () {
+        if (this.resize) {
+            this.rs.onScroll$.unsubscribe();
+        }
     }
     goTop () {
         $('html').animate({
             scrollTop: 0
         }, 500);
+    }
+    setDom (data) {
+        if (data.scrollY < data.height * 0.3) {
+            $('#go-to-top').fadeOut(500);
+        } else {
+            $('#go-to-top').fadeIn(500);
+        }
     }
 }

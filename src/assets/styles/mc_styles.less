@@ -32,11 +32,13 @@ html, body {
   #mc-wallet {
     display: block;
     position: relative;
-    //overflow: hidden;
     color: @mc_color_main_light;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)),
       url('./assets/images/bitcoin.jpg');
     .background-img;
+    &::-webkit-scrollbar {
+      width: 0!important;
+    }
   }
   .row {
     width: 100%;
@@ -66,8 +68,7 @@ html, body {
   border-left: 1px solid rgba(255,205,5,0.5);
   border-right: 1px solid rgba(255,205,5,0.5);
   border-radius: 5px;
-  background: transparent;//rgba(255,205,5,0.1);
-  //background: linear-gradient(transparent 100%, @mc_color_main_light);
+  background: transparent;
   color: @mc_color_main_light;
   font-size: xx-large;
   transition: background 0.5s, div 1s;

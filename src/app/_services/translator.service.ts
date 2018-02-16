@@ -1,26 +1,43 @@
 import {RU} from '../dictionaries/ru';
 import {EN} from '../dictionaries/en';
-
 import {Injectable} from '@angular/core';
+import {config} from '../config';
 
+/**
+ * @name TranslatorService
+ * @summary Service to translate values by keys from according dictionaries.
+ */
 @Injectable()
 export class TranslatorService {
-    private _currentLang: string;
     public _dictionary: {};
-    public get currentLang() {
-        return this._currentLang;
-    }
     constructor() {}
+    /**
+     * @name set
+     * @summary Sets translation language.
+     * @public
+     * @param {string} lang - translation language.
+     */
     public set(lang: string) {
-        this._currentLang = lang ? lang : 'EN';
-        switch (this._currentLang) {
-            case 'RU':
+        const setDictionary = {
+            RU: () => {
                 this._dictionary = RU;
-                break;
-            default:
+                return true;
+            },
+            EN: () => {
                 this._dictionary = EN;
+                return true;
+            }
+        };
+        if (!setDictionary[lang]()) {
+            this._dictionary = config().app.default_lang;
         }
     }
+    /**
+     * @name translate
+     * @summary Translates key value from according dictionary.
+     * @param {string} key - key from setted dictionary.
+     * @return {string} string - translated key value.
+     */
     public translate(key: string): string {
         const k = {
             key1: key.split('.')[0],

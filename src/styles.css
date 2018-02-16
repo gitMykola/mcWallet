@@ -269,6 +269,9 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+#app-mc #mc-wallet::-webkit-scrollbar {
+  width: 0!important;
+}
 #app-mc .row {
   width: 100%;
   margin: 0;
