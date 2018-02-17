@@ -11,14 +11,12 @@ import { RegisterComponent } from './register';
 import { WalletComponent } from './_wallet';
 import { TFormComponent } from './test';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
 import { FormsModule } from '@angular/forms';
 import {DigitsComponent} from './home/digits.component';
 import {FeaturesComponent} from './home/features.component';
 import {FooterComponent} from './home/footer.component';
 import {HowtoComponent} from './home/howto.component';
-import {CubeComponent} from './_wallet/cube/cube.component';
 import {ResizeService} from './_services/resize';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TranslatorService} from './_services/translator.service';
@@ -26,6 +24,7 @@ import {CubeAComponent} from './_wallet/cubeA/cubeA.component';
 import {StartTextComponent} from './_wallet/startText/starttext.component';
 import {AmmountComponent} from './components/ammount.component';
 import {GoToTopComponent} from './components/goToTop.component';
+import {HttpClient} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,7 +39,6 @@ import {GoToTopComponent} from './components/goToTop.component';
       HowtoComponent,
       FeaturesComponent,
       FooterComponent,
-      CubeComponent,
       CubeAComponent,
       StartTextComponent,
       AmmountComponent,
@@ -53,7 +51,7 @@ import {GoToTopComponent} from './components/goToTop.component';
     routing,
     ReactiveFormsModule,
     NgbModule.forRoot(),
-    HttpModule
+    HttpClient
   ],
   providers: [
       ResizeService,
