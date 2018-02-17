@@ -1,5 +1,6 @@
 import {Injectable, OnInit} from '@angular/core';
-import {reject} from 'q';
+import * as crypto from 'crypto-browserify';
+import {Buffer} from 'buffer';
 
 @Injectable()
 export class LocalStorageService implements OnInit {
@@ -18,9 +19,14 @@ export class LocalStorageService implements OnInit {
             });
     }
     setGuard (password: string) {
-        return new Promise(resolve => {
-            if (this._state) {
-                this._guard = password;
+        return new Promise((resolve, reject) => {
+            if (this._state && typeof(password) === 'string') {
+                if (password.length) {
+                    this._password = 'cipher';
+                    this._guard = password;
+                } else {
+                    this._password = 'noCipher';
+                }
                 resolve();
             } else {
                 reject();
@@ -28,8 +34,9 @@ export class LocalStorageService implements OnInit {
         });
     }
     set (key: string, value: string) {
-        return new Promise(resolve => {
-            if (!this._state || !this._password || (this._password && !this._guard)) {
+        return new Promise((resolve, reject) => {
+            if (!this._state || !this._password
+                || (this._password === 'cipher' && !this._guard)) {
                 reject();
             } else if (this._password === 'noCipher') {
                 localStorage.setItem(key, value);
@@ -45,34 +52,51 @@ export class LocalStorageService implements OnInit {
         });
     }
     get (key: string) {
-        return new Promise(resolve => {
-            if (!this._state || !this._password || (this._password && !this._guard)) {
+        return new Promise((resolve, reject) => {
+            if (!this._state || !this._password
+                || (this._password === 'cipher' && !this._guard)) {
                 reject();
             } else if (this._password === 'noCipher') {
                 const enc = localStorage.getItem(key);
                 resolve(enc);
             } else {
-                this._decrypt(key)
+                const value = localStorage.getItem(key);
+                this._decrypt(value)
                     .then(dec => {
-                        const value = localStorage.getItem(key);
-                        resolve(value);
+                        resolve(dec);
                     })
                     .catch(err => reject(err));
             }
         });
     }
     _encrypt (value: string) {
-        return new Promise(resolve => {
-            resolve(value);
+        return new Promise((resolve, reject) => {
+            try {
+                const cipher = crypto.createCipher('aes128', this._guard);
+                let cipherText = cipher.update(Buffer.from(value),
+                    'utf8', 'hex');
+                cipherText += cipher.final('hex');
+                resolve(cipherText);
+            } catch (e) {
+                reject(e.message);
+            }
         });
     }
     _decrypt (value: string) {
-        return new Promise(resolve => {
-            resolve(value);
+        return new Promise((resolve, reject) => {
+            try {
+                const decipher = crypto.createDecipher('aes128', this._guard);
+                let text = decipher.update(value,
+                    'hex', 'utf8');
+                text += decipher.final('utf8');
+                resolve(text);
+            } catch (e) {console.log('Get reject ' + e.message);
+                reject(e.message);
+            }
         });
     }
     _testLocalStorage () {
-        return new Promise (resolve =>  {
+        return new Promise ((resolve, reject) =>  {
             try {
                 const test = 'test';
                 localStorage.setItem('test', 'test');

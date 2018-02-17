@@ -25,6 +25,7 @@ import {StartTextComponent} from './_wallet/startText/starttext.component';
 import {AmmountComponent} from './components/ammount.component';
 import {GoToTopComponent} from './components/goToTop.component';
 import {HttpClient} from '@angular/common/http';
+import {LocalStorageService} from './_services/localStorage.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {HttpClient} from '@angular/common/http';
   ],
   providers: [
       ResizeService,
-      TranslatorService
+      TranslatorService,
+      LocalStorageService
   ],
   bootstrap: [AppComponent]
 })
