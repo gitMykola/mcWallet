@@ -35,37 +35,45 @@ export class LocalStorageService implements OnInit {
     }
     set (key: string, value: string) {
         return new Promise((resolve, reject) => {
-            if (!this._state || !this._password
-                || (this._password === 'cipher' && !this._guard)) {
-                reject();
-            } else if (this._password === 'noCipher') {
-                localStorage.setItem(key, value);
-                resolve();
-            } else {
-                this._encrypt(value)
-                    .then(enc => {
-                        localStorage.setItem(key, enc.toString());
-                        resolve();
-                    })
-                    .catch(err => reject(err));
+            try {
+                if (!this._state || !this._password
+                    || (this._password === 'cipher' && !this._guard)) {
+                    reject();
+                } else if (this._password === 'noCipher') {
+                    localStorage.setItem(key, value);
+                    resolve();
+                } else {
+                    this._encrypt(value)
+                        .then(enc => {
+                            localStorage.setItem(key, enc.toString());
+                            resolve();
+                        })
+                        .catch(err => reject(err));
+                }
+            } catch (e) {
+                reject(e.message);
             }
         });
     }
     get (key: string) {
         return new Promise((resolve, reject) => {
-            if (!this._state || !this._password
-                || (this._password === 'cipher' && !this._guard)) {
-                reject();
-            } else if (this._password === 'noCipher') {
-                const enc = localStorage.getItem(key);
-                resolve(enc);
-            } else {
-                const value = localStorage.getItem(key);
-                this._decrypt(value)
-                    .then(dec => {
-                        resolve(dec);
-                    })
-                    .catch(err => reject(err));
+            try {
+                if (!this._state || !this._password
+                    || (this._password === 'cipher' && !this._guard)) {
+                    reject();
+                } else if (this._password === 'noCipher') {
+                    const enc = localStorage.getItem(key);
+                    resolve(enc);
+                } else {
+                    const value = localStorage.getItem(key);
+                    this._decrypt(value)
+                        .then(dec => {
+                            resolve(dec);
+                        })
+                        .catch(err => reject(err));
+                }
+            } catch (e) {
+                reject(e.message);
             }
         });
     }

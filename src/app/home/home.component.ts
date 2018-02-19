@@ -14,4 +14,7 @@ export class HomeComponent implements OnInit {
     }
     ngOnInit() {
     }
+    onExit(e) {
+        this.exit = e;
+    }
 }

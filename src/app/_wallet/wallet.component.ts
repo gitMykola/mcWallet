@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {config} from '../config';
 import * as $ from 'jquery';
 import {Subscription} from 'rxjs/Subscription';
@@ -14,7 +14,8 @@ export class WalletComponent implements OnInit, OnDestroy, AfterViewInit {
     currencies: any;
     selectedCurrency: any;
     resize: Subscription;
-    open: Boolean;
+    open: boolean;
+    @Output() onExit = new EventEmitter<boolean>();
     constructor (private rs: ResizeService,
                 public trans: TranslatorService) {
         this.currencies = config().currencies;
@@ -45,6 +46,7 @@ export class WalletComponent implements OnInit, OnDestroy, AfterViewInit {
     openWallet (event) {
         // $(event.target).fadeOut();
         this.open = !this.open;
+        this.onExit.emit(!this.open);
         this.setBackground();
     }
     setBackground () {

@@ -1,5 +1,6 @@
 <div class="container" id="app-mc">
-    <app-wallet></app-wallet>
+    <app-wallet
+        (onExit)="onExit($event)"></app-wallet>
     <app-digits  *ngIf="exit"></app-digits>
     <app-howto *ngIf="exit"></app-howto>
     <app-features *ngIf="exit"></app-features>

@@ -1,12 +1,12 @@
 import {LocalStorageService} from '../_services/localStorage.service';
 import {async, TestBed} from '@angular/core/testing';
 let ls = null;
-beforeEach(() => {
+beforeEach(async(() => {
     TestBed.configureTestingModule({
         providers: [ LocalStorageService ]
     });
     ls = TestBed.get(LocalStorageService);
-});
+}));
 
 describe('LocalStorage', () => {
     xit('LocalStorage.setGuard noCipher', async(() => {

@@ -24,8 +24,8 @@ import {CubeAComponent} from './_wallet/cubeA/cubeA.component';
 import {StartTextComponent} from './_wallet/startText/starttext.component';
 import {AmmountComponent} from './components/ammount.component';
 import {GoToTopComponent} from './components/goToTop.component';
-import {HttpClient} from '@angular/common/http';
 import {LocalStorageService} from './_services/localStorage.service';
+import {InfoMonitor} from './_services/info.monitor';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,8 @@ import {LocalStorageService} from './_services/localStorage.service';
       CubeAComponent,
       StartTextComponent,
       AmmountComponent,
-      GoToTopComponent
+      GoToTopComponent,
+      InfoMonitor
   ],
   imports: [
     BrowserModule,
@@ -51,8 +52,7 @@ import {LocalStorageService} from './_services/localStorage.service';
     FormsModule,
     routing,
     ReactiveFormsModule,
-    NgbModule.forRoot(),
-    HttpClient
+    NgbModule.forRoot()
   ],
   providers: [
       ResizeService,
