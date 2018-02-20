@@ -118,5 +118,12 @@ export const EN = {
         LTC: 'Litecoin',
         BTG: 'Bitcoin Gold',
         BCH: 'Bitcoin Cash',
+    },
+    dash: {
+        menu: 'Menu',
+        settings: 'Settings',
+        popups: 'Popups',
+        up: 'Up',
+        exit: 'Exit'
     }
 };

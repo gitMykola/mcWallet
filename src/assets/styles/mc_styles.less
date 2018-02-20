@@ -24,6 +24,7 @@ html, body {
   display: block;
   position: relative;
   width: 100%;
+  .scroll-hide;
 }
 #app-mc {
   margin: 0;
@@ -36,9 +37,7 @@ html, body {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)),
       url('./assets/images/bitcoin.jpg');
     .background-img;
-    &::-webkit-scrollbar {
-      width: 0!important;
-    }
+    .scroll-hide;
   }
   .row {
     width: 100%;
@@ -91,6 +90,27 @@ html, body {
   text-align: center;
   width: 100%;
   padding: 10px 0;
+}
+.message, .warning, .error {
+  background: rgba(0,0,0,0.8);
+  min-width: 90%;
+}
+.message {
+  color: rgb(255,205,0);
+}
+.warning {
+  color: rgb(100,100,0);
+}
+.error {
+  color: rgb(225,0,0);
+}
+.ziro-height {
+  display: none;
+}
+.scroll-hide {
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 @media screen and (max-width: 768px) {
   #app-mc {

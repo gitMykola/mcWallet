@@ -4,6 +4,7 @@ import * as $ from 'jquery';
 import {Subscription} from 'rxjs/Subscription';
 import {ResizeService} from '../_services/resize';
 import {TranslatorService} from '../_services/translator.service';
+import {InfoMonitor} from "../_services/info.monitor";
 
 @Component({
     selector: 'app-wallet',
@@ -17,7 +18,8 @@ export class WalletComponent implements OnInit, OnDestroy, AfterViewInit {
     open: boolean;
     @Output() onExit = new EventEmitter<boolean>();
     constructor (private rs: ResizeService,
-                public trans: TranslatorService) {
+                 public trans: TranslatorService,
+                 public im: InfoMonitor) {
         this.currencies = config().currencies;
         this.selectedCurrency = {
             currency: '',

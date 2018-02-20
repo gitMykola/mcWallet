@@ -256,6 +256,10 @@ body {
   position: relative;
   width: 100%;
 }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
 #app-mc {
   margin: 0;
   padding: 0;
@@ -270,7 +274,7 @@ body {
   background-attachment: fixed;
 }
 #app-mc #mc-wallet::-webkit-scrollbar {
-  width: 0!important;
+  display: none;
 }
 #app-mc .row {
   width: 100%;
@@ -322,6 +326,27 @@ body {
   text-align: center;
   width: 100%;
   padding: 10px 0;
+}
+.message,
+.warning,
+.error {
+  background: rgba(0, 0, 0, 0.8);
+  min-width: 90%;
+}
+.message {
+  color: #ffcd00;
+}
+.warning {
+  color: #646400;
+}
+.error {
+  color: #e10000;
+}
+.ziro-height {
+  display: none;
+}
+.scroll-hide::-webkit-scrollbar {
+  display: none;
 }
 @media screen and (max-width: 768px) {
   #app-mc .row {

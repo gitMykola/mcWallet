@@ -26,6 +26,8 @@ import {AmmountComponent} from './components/ammount.component';
 import {GoToTopComponent} from './components/goToTop.component';
 import {LocalStorageService} from './_services/localStorage.service';
 import {InfoMonitor} from './_services/info.monitor';
+import {InfoComponent} from './components/info.component';
+import {DashboardComponent} from './components/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import {InfoMonitor} from './_services/info.monitor';
       StartTextComponent,
       AmmountComponent,
       GoToTopComponent,
-      InfoMonitor
+      InfoComponent,
+      DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import {InfoMonitor} from './_services/info.monitor';
   providers: [
       ResizeService,
       TranslatorService,
-      LocalStorageService
+      LocalStorageService,
+      InfoMonitor
   ],
   bootstrap: [AppComponent]
 })
