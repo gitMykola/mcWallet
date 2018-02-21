@@ -10,9 +10,9 @@ import {group, query, transition, trigger, useAnimation} from '@angular/animatio
 import {anim} from '../../components/animations';
 
 @Component({
-    selector: 'app-cube-a',
-    templateUrl: './cubeA.component.html',
-    styleUrls: ['./cubeA.css'],
+    selector: 'app-cube',
+    templateUrl: './cube.component.html',
+    styleUrls: ['./cube.css'],
     animations: [
         trigger('poligon', [
             transition('close => inactive', [

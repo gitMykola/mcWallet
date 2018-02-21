@@ -9,10 +9,13 @@
 @import "https://fonts.googleapis.com/css?family=Roboto+Mono:400,300,600,700,800";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
 @mc_color_main_light: rgb(255, 205, 0);
+@mc_color_main_light_trans: rgba(255, 205, 0, 0.3);
 @mc_color_main_dark: rgb(0,0,0);
+@mc_color_main_dark_trans: rgba(0,0,0, 0.3);
 
   .font {
     font-family: mcFontLight;
+    font-weight: 100;
   }
 .fontBold {
   font-family: mcFontBold;
@@ -83,13 +86,14 @@ html, body {
     background: linear-gradient(transparent, @mc_color_main_light, transparent);
   }
 }
-.mc-nav-bottom {
+#mc-nav-bottom {
   display: block;
   position: absolute;
   bottom: 80px;
   text-align: center;
   width: 100%;
   padding: 10px 0;
+  z-index: 100;
 }
 .message, .warning, .error {
   background: rgba(0,0,0,0.8);
@@ -112,6 +116,74 @@ html, body {
     display: none;
   }
 }
+.mc-modal {
+  display: none;
+  position: absolute!important;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding:100px 100px;
+}
+.mc-form {
+  .input-text {
+    display: block;
+  }
+  .input-check {
+    display: flex;
+    align-items: center;
+    label {
+      margin: 5px 10px!important;
+      font-size: 18px!important;
+    }
+  }
+  .input-block {
+    margin: 15px 0 5px 0;
+    input {
+      font-size: 22px;
+      .mc-field;
+    }
+    .mc-check {
+      .mc-field;
+      display: block;
+      margin: 5px 0;
+      padding: 6px;
+      cursor: pointer;
+      height: 35px;
+      min-width: 35px;
+      text-align: center;
+      span {
+        font-size: 22px;
+      }
+    }
+    label {
+      font-size: 20px;
+      margin: 0;
+      padding: 5px 0 0 0;
+      .font;
+    }
+  }
+  .exit {
+    button {
+      margin: 5px;
+      padding: 5px 15px;
+    }
+  }
+  #advanced-block {
+    display: none;
+  }
+}
+.mc-field {
+  .font;
+  color: @mc_color_main_light;
+  background-color: transparent;
+  border-radius: 3px;
+  border-left: 1px solid @mc_color_main_light;
+  border-right: 1px solid @mc_color_main_light;
+  border-top: 1px solid @mc_color_main_light_trans;
+  border-bottom: 1px solid @mc_color_main_light_trans;
+}
 @media screen and (max-width: 768px) {
   #app-mc {
     .row {
@@ -121,9 +193,14 @@ html, body {
 }
 @media screen and (max-height: 480px) {
   #app-mc {
-    .mc-nav-bottom {
+    #mc-nav-bottom {
       text-align: right;
       bottom: 20px;
     }
+  }
+}
+@media screen and (max-width: 480px) {
+  .mc-modal {
+    padding: 100px 2px;
   }
 }

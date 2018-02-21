@@ -3,7 +3,7 @@ import * as Big from '../../../node_modules/big.js';
 
 @Component({
     selector: 'app-ammount',
-    template: '<p>{{ammountString}}</p>'
+    template: '<span>{{ammountString}}</span>'
 })
 export class AmmountComponent implements OnInit, OnChanges {
     public ammountString: string;

@@ -4,7 +4,8 @@ import * as $ from 'jquery';
 import {Subscription} from 'rxjs/Subscription';
 import {ResizeService} from '../_services/resize';
 import {TranslatorService} from '../_services/translator.service';
-import {InfoMonitor} from "../_services/info.monitor";
+import {InfoMonitor} from '../_services/info.monitor';
+import {LocalStorageService} from "../_services/localStorage.service";
 
 @Component({
     selector: 'app-wallet',
@@ -16,16 +17,21 @@ export class WalletComponent implements OnInit, OnDestroy, AfterViewInit {
     selectedCurrency: any;
     resize: Subscription;
     open: boolean;
+    advanced: boolean;
+    local: boolean;
+    restore: boolean;
+    start: boolean;
     @Output() onExit = new EventEmitter<boolean>();
     constructor (private rs: ResizeService,
                  public trans: TranslatorService,
-                 public im: InfoMonitor) {
+                 public im: InfoMonitor,
+                 private ls: LocalStorageService) {
         this.currencies = config().currencies;
         this.selectedCurrency = {
             currency: '',
             network: ''
         };
-        this.open = false;
+        this.open = this.local = this.restore = this.advanced = this.start = false;
     }
     ngOnInit () {
         this.resize = this.rs.onResize$.subscribe(data => this.setDom(data));
@@ -45,9 +51,14 @@ export class WalletComponent implements OnInit, OnDestroy, AfterViewInit {
     setDom(data) {
         $('#mc-wallet').css('min-height', data.height);
     }
-    openWallet (event) {
-        // $(event.target).fadeOut();
-        this.open = !this.open;
+    openWallet (e) {
+        const mcNav = document.querySelector('#mc-nav-bottom button');
+        if (e) {
+            $(mcNav).fadeOut();
+        } else {
+            $(mcNav).fadeIn();
+        }
+        this.open = e;
         this.onExit.emit(!this.open);
         this.setBackground();
     }
@@ -69,5 +80,32 @@ export class WalletComponent implements OnInit, OnDestroy, AfterViewInit {
                 'background-attachment': 'fixed'
             });
         }
+    }
+    setAdvanced() {
+        this.advanced = !this.advanced;
+        const advBlock = document.querySelector('#start-form #advanced-block');
+        if (this.advanced) {
+            $(advBlock).fadeIn();
+        } else {
+            $(advBlock).hide();
+        }
+    }
+    startProcess() {
+        if (this.start) {
+            // this.openWallet(true);
+        } else {
+            this.start = true;
+            const form = document.querySelector('#mc-wallet .mc-modal'),
+                cube = document.querySelector('#mc-wallet #cube');
+            $(form).fadeIn();
+            $(cube).fadeOut();
+        }
+    }
+    cancelProcess() {
+        this.open = this.local = this.restore = this.advanced = this.start = false;
+        const form = document.querySelector('#mc-wallet .mc-modal'),
+            cube = document.querySelector('#mc-wallet #cube');
+        $(form).fadeOut();
+        $(cube).fadeIn();
     }
 }

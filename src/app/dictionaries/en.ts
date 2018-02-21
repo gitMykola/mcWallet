@@ -8,9 +8,12 @@ export const EN = {
         add_account: 'Add Account',
         open_account: 'Open Account',
         new_account: 'New Account',
+        create_wallet: 'Create wallet',
         enter: 'Enter'
     },
     labels: {
+        email: 'Email',
+        phone: 'Phone',
         passphrase: 'Passphrase',
         cpass: 'Confirm passphrase',
         key_file: 'Key file',
@@ -50,6 +53,8 @@ export const EN = {
         feeRate: 'Fee Rate',
         confirmations: 'Confirmations',
         per: 'per',
+        local: 'Only locally generate transactions & broadcast signed data.',
+        restore: 'Restore passphrase.'
     },
     app: {
         title_1: 'Triumf ',

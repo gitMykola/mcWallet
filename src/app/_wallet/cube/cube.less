@@ -3,7 +3,7 @@
   font-family: 'Nanum Myeongjo', serif;
   font-weight: 400;
 }
-#cube-a {
+#cube {
   width: 100%;
   overflow: visible;
   &::-webkit-scrollbar {
@@ -63,8 +63,11 @@
           flex: 1 2 auto;
           align-self: flex-end;
           margin: 0;
-          font-size: 50px;
+          font-size: 40px;
           text-align: right;
+          span {
+            margin: 0;
+          }
         }
         .wall-background {
           position: absolute;
@@ -86,10 +89,6 @@
   }
 }
 .transform3D {
-  //display: block;
-  //position: absolute;
-  //top:0;
-  //left:0;
   transform-style: preserve-3d;
 }
 .rotCube {
@@ -99,26 +98,26 @@
   animation-direction: normal;
   animation-iteration-count: infinite;
 }
-.widht-0 {}
-.widht-1 {}
 
+@media screen and (max-width: 768px) {
+  .wall-ammount {
+  }
+}
 @media screen and (max-width: 560px) {
   .wall-ammount {
     font-size: 30px!important;
-    //padding-bottom: 10px;
   }
 }
 @media screen and (max-width: 480px) {
   .wall-name {
     font-size: 20px!important;
-    //padding-bottom: 10px;
   }
 }
 @media screen and (max-width: 400px) {
   .wall-ammount {
     font-size: 20px!important;
-    padding-bottom: 5px;
-    p {
+    padding-bottom: 10px;
+    span {
       font-weight: 800!important;
     }
   }

@@ -234,6 +234,7 @@
 }
 .font {
   font-family: mcFontLight;
+  font-weight: 100;
 }
 .fontBold {
   font-family: mcFontBold;
@@ -249,6 +250,7 @@ span,
 label,
 a {
   font-family: mcFontLight;
+  font-weight: 100;
 }
 html,
 body {
@@ -297,6 +299,7 @@ body::-webkit-scrollbar {
 .mc-btn-trans-bottom {
   position: relative;
   font-family: mcFontLight;
+  font-weight: 100;
   margin: 0 20px;
   padding: 5px 30px;
   border: none;
@@ -319,13 +322,14 @@ body::-webkit-scrollbar {
   border-radius: 5px;
   background: linear-gradient(transparent, #ffcd00, transparent);
 }
-.mc-nav-bottom {
+#mc-nav-bottom {
   display: block;
   position: absolute;
   bottom: 80px;
   text-align: center;
   width: 100%;
   padding: 10px 0;
+  z-index: 100;
 }
 .message,
 .warning,
@@ -348,15 +352,102 @@ body::-webkit-scrollbar {
 .scroll-hide::-webkit-scrollbar {
   display: none;
 }
+.mc-modal {
+  display: none;
+  position: absolute!important;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 100px 100px;
+}
+.mc-form .input-text {
+  display: block;
+}
+.mc-form .input-check {
+  display: flex;
+  align-items: center;
+}
+.mc-form .input-check label {
+  margin: 5px 10px!important;
+  font-size: 18px!important;
+}
+.mc-form .input-block {
+  margin: 15px 0 5px 0;
+}
+.mc-form .input-block input {
+  font-size: 22px;
+  font-family: mcFontLight;
+  font-weight: 100;
+  color: #ffcd00;
+  background-color: transparent;
+  border-radius: 3px;
+  border-left: 1px solid #ffcd00;
+  border-right: 1px solid #ffcd00;
+  border-top: 1px solid rgba(255, 205, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 205, 0, 0.3);
+}
+.mc-form .input-block .mc-check {
+  font-family: mcFontLight;
+  font-weight: 100;
+  color: #ffcd00;
+  background-color: transparent;
+  border-radius: 3px;
+  border-left: 1px solid #ffcd00;
+  border-right: 1px solid #ffcd00;
+  border-top: 1px solid rgba(255, 205, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 205, 0, 0.3);
+  display: block;
+  margin: 5px 0;
+  padding: 6px;
+  cursor: pointer;
+  height: 35px;
+  min-width: 35px;
+  text-align: center;
+}
+.mc-form .input-block .mc-check span {
+  font-size: 22px;
+}
+.mc-form .input-block label {
+  font-size: 20px;
+  margin: 0;
+  padding: 5px 0 0 0;
+  font-family: mcFontLight;
+  font-weight: 100;
+}
+.mc-form .exit button {
+  margin: 5px;
+  padding: 5px 15px;
+}
+.mc-form #advanced-block {
+  display: none;
+}
+.mc-field {
+  font-family: mcFontLight;
+  font-weight: 100;
+  color: #ffcd00;
+  background-color: transparent;
+  border-radius: 3px;
+  border-left: 1px solid #ffcd00;
+  border-right: 1px solid #ffcd00;
+  border-top: 1px solid rgba(255, 205, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 205, 0, 0.3);
+}
 @media screen and (max-width: 768px) {
   #app-mc .row {
     padding: 5px;
   }
 }
 @media screen and (max-height: 480px) {
-  #app-mc .mc-nav-bottom {
+  #app-mc #mc-nav-bottom {
     text-align: right;
     bottom: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .mc-modal {
+    padding: 100px 2px;
   }
 }
 .author {

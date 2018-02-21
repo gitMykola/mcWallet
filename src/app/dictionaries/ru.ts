@@ -8,6 +8,7 @@ export const RU = {
         add_account: 'Добавить аккаунт',
         open_account: 'Открыть аккаунт',
         new_account: 'Новый Аккаунт',
+        create_wallet: 'Создать кошелёк',
         enter: 'Войти'
     },
     labels: {
@@ -49,7 +50,9 @@ export const RU = {
         details: 'Детали',
         feeRate: 'Цена комиссии',
         confirmations: 'Подтверждения',
-        per: 'за'
+        per: 'за',
+        local: 'Только локально генерировать транзакции и отправлять подписанные.',
+        restore: 'Восстановить секретную фразу.'
     },
     app: {
         title_1: 'Триумф ',

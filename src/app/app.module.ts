@@ -20,7 +20,7 @@ import {HowtoComponent} from './home/howto.component';
 import {ResizeService} from './_services/resize';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TranslatorService} from './_services/translator.service';
-import {CubeAComponent} from './_wallet/cubeA/cubeA.component';
+import {CubeAComponent} from './_wallet/cube/cube.component';
 import {StartTextComponent} from './_wallet/startText/starttext.component';
 import {AmmountComponent} from './components/ammount.component';
 import {GoToTopComponent} from './components/goToTop.component';
