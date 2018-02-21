@@ -32,19 +32,22 @@
             <label class="col-xs-12">
                 {{trans.translate('labels.email')}}
             </label>
-            <input class="col-xs-12" type="email"/>
+            <input class="col-xs-12" type="email" name="email"
+                   (input)="preValidateField($event.target)"/>
         </div>
         <div class="input-block input-text col-xs-12">
             <label class="col-xs-12">
                 {{trans.translate('labels.phone')}}
             </label>
-            <input class="col-xs-12" type="text"/>
+            <input class="col-xs-12" type="text" name="phone"
+                   (input)="preValidateField($event.target)"/>
         </div>
         <div class="input-block input-text col-xs-12">
             <label class="col-xs-12">
                 {{trans.translate('labels.passphrase')}}
             </label>
-            <input class="col-xs-12" type="password"/>
+            <input class="col-xs-12" type="password" name="passphrase"
+             (input)="preValidateField($event.target)"/>
         </div>
         <div class="input-block input-check col-xs-12">
             <p class="mc-check"

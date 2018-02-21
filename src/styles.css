@@ -381,7 +381,7 @@ body::-webkit-scrollbar {
   font-family: mcFontLight;
   font-weight: 100;
   color: #ffcd00;
-  background-color: transparent;
+  background-color: rgba(255, 205, 0, 0.3);
   border-radius: 3px;
   border-left: 1px solid #ffcd00;
   border-right: 1px solid #ffcd00;
@@ -392,7 +392,7 @@ body::-webkit-scrollbar {
   font-family: mcFontLight;
   font-weight: 100;
   color: #ffcd00;
-  background-color: transparent;
+  background-color: rgba(255, 205, 0, 0.3);
   border-radius: 3px;
   border-left: 1px solid #ffcd00;
   border-right: 1px solid #ffcd00;
@@ -427,12 +427,15 @@ body::-webkit-scrollbar {
   font-family: mcFontLight;
   font-weight: 100;
   color: #ffcd00;
-  background-color: transparent;
+  background-color: rgba(255, 205, 0, 0.3);
   border-radius: 3px;
   border-left: 1px solid #ffcd00;
   border-right: 1px solid #ffcd00;
   border-top: 1px solid rgba(255, 205, 0, 0.3);
   border-bottom: 1px solid rgba(255, 205, 0, 0.3);
+}
+.error-field {
+  border: 3px solid red;
 }
 @media screen and (max-width: 768px) {
   #app-mc .row {

@@ -5,7 +5,7 @@ import {Subscription} from 'rxjs/Subscription';
 import {ResizeService} from '../_services/resize';
 import {TranslatorService} from '../_services/translator.service';
 import {InfoMonitor} from '../_services/info.monitor';
-import {LocalStorageService} from "../_services/localStorage.service";
+import {LocalStorageService} from '../_services/localStorage.service';
 
 @Component({
     selector: 'app-wallet',
@@ -91,21 +91,63 @@ export class WalletComponent implements OnInit, OnDestroy, AfterViewInit {
         }
     }
     startProcess() {
-        if (this.start) {
-            // this.openWallet(true);
-        } else {
-            this.start = true;
-            const form = document.querySelector('#mc-wallet .mc-modal'),
-                cube = document.querySelector('#mc-wallet #cube');
-            $(form).fadeIn();
-            $(cube).fadeOut();
-        }
+        this.ls.get('remote')
+            .then( remote => {})
+            .catch(err => {
+                    // this.start = true;
+                    const form = document.querySelector('#mc-wallet .mc-modal'),
+                        cube = document.querySelector('#mc-wallet #cube');
+                    $(form).fadeIn();
+                    $(cube).fadeOut();
+            });
     }
     cancelProcess() {
-        this.open = this.local = this.restore = this.advanced = this.start = false;
+        this.resetStartForm();
+        this.open = this.start = false;
         const form = document.querySelector('#mc-wallet .mc-modal'),
             cube = document.querySelector('#mc-wallet #cube');
         $(form).fadeOut();
         $(cube).fadeIn();
+    }
+    resetStartForm () {
+        const formFields = document.querySelectorAll('#mc-wallet #start-form input');
+        let el = null;
+        for (let i = 0; i < formFields.length; i++) {
+            el = formFields.item(i);
+            el.value = null;
+        }
+        this.local = this.restore = this.advanced = false;
+        const advBlock = document.querySelector('#start-form #advanced-block');
+        $(advBlock).hide();
+    }
+    validateStartForm () {
+        return new Promise((resolve, reject) => {
+            resolve();
+        });
+    }
+    preValidateField (target) {
+        const valid = {
+            email: function (value) {
+                return (typeof(value) === 'string'
+                    && value.match
+(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/));
+            }, // TODO find more suitable phone regex
+            phone: function (value) {
+                return (typeof(value) === 'string'
+                    && value.match(/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g)
+                    && value.length === 13);
+            }, // TODO find more suitable passphrase regex
+            passphrase: function (value) {
+                return (typeof(value) === 'string'
+                && value.length >= 8
+                && value.length < 256);
+            }
+        };
+        // return valid[target.name](target.value);
+        if (!valid[target.name](target.value)) {
+            $(target.previousElementSibling).css({color: 'red'});
+        } else {
+            $(target.previousElementSibling).css({color: 'rgb(255,205,0)'});
+        }
     }
 }

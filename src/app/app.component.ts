@@ -30,10 +30,10 @@ export class AppComponent implements OnInit, OnDestroy {
             buttons[i].appendChild(document.createElement('div'));
             $(buttons[i]).hover((e) => {
                 const t: any = e;
-                $(t.target.children[0]).animate({top: '-100%'}, 900);
+                $(t.target.getElementsByTagName('DIV')[0]).animate({top: '-100%'}, 900);
             }, (e) => {
                 const t: any = e;
-                $(t.target.children[0]).css({top: '100%'});
+                $(t.target.getElementsByTagName('DIV')[0]).css({top: '100%'});
             });
         }
     }
