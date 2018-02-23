@@ -37,9 +37,7 @@ html, body {
     display: block;
     position: relative;
     color: @mc_color_main_light;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)),
-      url('./assets/images/bitcoin.jpg');
-    .background-img;
+    .background-img-light;
     .scroll-hide;
   }
   .row {
@@ -48,7 +46,15 @@ html, body {
     padding: 15px;
   }
 }
-.background-img {
+.background-img-light {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)),
+  url('./assets/images/bitcoin.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+.background-img-dark {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)),
+  url('./assets/images/bitcoin.jpg');
   background-size: cover;
   background-attachment: fixed;
 }
@@ -139,7 +145,7 @@ html, body {
     }
   }
   .input-block {
-    margin: 15px 0 5px 0;
+    margin: 5px 0;
     input {
       font-size: 22px;
       .mc-field;
@@ -151,7 +157,7 @@ html, body {
       padding: 6px;
       cursor: pointer;
       height: 35px;
-      min-width: 35px;
+      min-width: 36px;
       text-align: center;
       span {
         font-size: 22px;
@@ -165,12 +171,16 @@ html, body {
     }
   }
   .exit {
+    margin: 0;
     button {
-      margin: 5px;
+      margin: 0;
       padding: 5px 15px;
     }
   }
   #advanced-block {
+    display: none;
+  }
+  span[data-name="local"], span[data-name="nolocal"] {
     display: none;
   }
 }
@@ -191,14 +201,6 @@ html, body {
   #app-mc {
     .row {
       padding: 5px;
-    }
-  }
-}
-@media screen and (max-height: 480px) {
-  #app-mc {
-    #mc-nav-bottom {
-      text-align: right;
-      bottom: 20px;
     }
   }
 }

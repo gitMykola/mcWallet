@@ -64,7 +64,7 @@ export class InfoComponent implements OnInit, OnDestroy {
             this.im.onInfo$.unsubscribe();
         }
     }
-    setInfo (data) {console.dir(data);
+    setInfo (data) {
         const msgDom = document.createElement('div'),
             content = document.querySelector('#info .content'),
             last = content.querySelector('.last'),
@@ -75,15 +75,15 @@ export class InfoComponent implements OnInit, OnDestroy {
         content.appendChild(msgDom);
         const col = data.category === 2 ? 'rgb(225,0,0)'
             : data.category ? 'rgb(100,100,0)' : 'rgb(255,205,0)';
-        $(last).animate({
+        $(last).css({
             opacity: 1,
             color: col,
             background: 'rgba(0,0,0,0.8)',
             minWidth: '90%'
-        }, 300);
+        }).animate({opacity: 1}, 100);
         setTimeout(() => $(last).animate({
             opacity: 0
-        }, 3000), 300);
+        }, 500), 5000);
     }
     showContent () {
         $('#info .content .ziro-height').slideToggle();

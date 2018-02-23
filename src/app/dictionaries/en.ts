@@ -9,7 +9,11 @@ export const EN = {
         open_account: 'Open Account',
         new_account: 'New Account',
         create_wallet: 'Create wallet',
-        enter: 'Enter'
+        enter: 'Enter',
+        start: 'Start',
+        open: 'Open',
+        next: 'Next',
+        back: 'Back'
     },
     labels: {
         email: 'Email',
@@ -54,7 +58,8 @@ export const EN = {
         confirmations: 'Confirmations',
         per: 'per',
         local: 'Only locally generate transactions & broadcast signed data.',
-        restore: 'Restore passphrase.'
+        restore: 'Restore passphrase.',
+        nopass: 'No passphrase'
     },
     app: {
         title_1: 'Triumf ',
@@ -100,9 +105,14 @@ export const EN = {
         wrong_change: 'Wrong change address.',
         wrong_method: 'Wrong method.',
         wrong_account_data: 'Wrong account data.',
+        wrong_field: 'Wrong field value.',
         raw_tx_error: 'Raw transaction error.',
         sending_transaction_error: 'Transaction not send. Please, try again.',
-        tx_open_error: 'Transaction open error.'
+        tx_open_error: 'Transaction open error.',
+        email: 'Should be like nick@gmail.com.',
+        phone: 'Should be like +380939506642.',
+        passphrase: 'Should ba at least 8 charactrs.',
+        open_error: 'Open error! Try again.'
     },
     info: {
         account_opened_successfully: 'Account open successfully.',
@@ -115,7 +125,8 @@ export const EN = {
         input_passphrase_new_account: 'Please input passphrase to generate new account.',
         please_wait: 'Please wait...',
         fill_transaction_data: 'Please fill transaction data.',
-        raw_transaction: 'Raw Transaction'
+        raw_transaction: 'Raw Transaction',
+        no_local_storage: 'Local Storage not acceptable! You cann\'t use local settings!'
     },
     currencies: {
         ETH: 'Ethereum',

@@ -11,7 +11,7 @@
             [walls]="currencies" (onSelect)="select($event)"></app-cube>
     <div id="mc-nav-bottom">
         <button class="mc-btn-trans-bottom" (click)="startProcess()">
-            {{trans.translate('buttons.create_wallet')}}
+            {{trans.translate('buttons.start')}}
         </button>
     </div>
     <app-dash [open]="open" (onExit)="openWallet($event)"></app-dash>
@@ -20,64 +20,91 @@
         <form class="mc-form
         col-xs-12 col-xs-offset-0
         col-sm-8 col-sm-offset-2
-        col-md-6 col-md-offset-3
-        col-lg-4 col-lg-offset-4"
+        col-lg-6 col-lg-offset-3"
               id="start-form">
-        <div class="input-block exit text-right">
-            <button class="mc-btn-trans-bottom" (click)="cancelProcess()">
-                <span class="fa">&#xf011;</span>
-            </button>
-        </div>
-        <div class="input-block input-text col-xs-12">
-            <label class="col-xs-12">
-                {{trans.translate('labels.email')}}
-            </label>
-            <input class="col-xs-12" type="email" name="email"
-                   (input)="preValidateField($event.target)"/>
-        </div>
-        <div class="input-block input-text col-xs-12">
-            <label class="col-xs-12">
-                {{trans.translate('labels.phone')}}
-            </label>
-            <input class="col-xs-12" type="text" name="phone"
-                   (input)="preValidateField($event.target)"/>
-        </div>
-        <div class="input-block input-text col-xs-12">
-            <label class="col-xs-12">
-                {{trans.translate('labels.passphrase')}}
-            </label>
-            <input class="col-xs-12" type="password" name="passphrase"
-             (input)="preValidateField($event.target)"/>
-        </div>
-        <div class="input-block input-check col-xs-12">
-            <p class="mc-check"
-               (click)="setAdvanced()">
-                <span class="fa" *ngIf="advanced">&#xf25a;</span>
-            </p>
-            <label class="">
-                {{trans.translate('labels.advanced')}}
-            </label>
-        </div>
-        <span id="advanced-block">
+            <div class="input-block exit text-right">
+                <button class="mc-btn-trans-bottom" (click)="cancelProcess()">
+                    <span class="fa">&#xf011;</span>
+                </button>
+            </div>
+            <span data-name="nolocal">
+                <div class="input-block input-text col-xs-12" *ngIf="step !== 3">
+                <label class="col-xs-12">
+                    {{trans.translate('labels.email')}}
+                </label>
+                <input class="col-xs-12" type="email" name="email"
+                       title="{{trans.translate('labels.email')}}"
+                       (input)="showValidateFieldError($event.target)"
+                       (change)="showValidateFieldError($event.target, 1)"/>
+            </div>
+                <div class="input-block input-text col-xs-12" *ngIf="step !== 3">
+                <label class="col-xs-12">
+                    {{trans.translate('labels.phone')}}
+                </label>
+                <input class="col-xs-12" type="text" name="phone"
+                       title="{{trans.translate('labels.phone')}}"
+                       (input)="showValidateFieldError($event.target)"
+                       (change)="showValidateFieldError($event.target, 1)"/>
+            </div>
+            </span>
+            <div class="input-block input-text col-xs-12">
+                <label class="col-xs-12">
+                    {{trans.translate('labels.passphrase')}}
+                </label>
+                <input class="col-xs-12" type="password" name="passphrase"
+                       title="{{trans.translate('labels.passphrase')}}"
+                 (input)="showValidateFieldError($event.target)"
+                (change)="showValidateFieldError($event.target, 1)"/>
+            </div>
+            <div class="input-block input-text col-xs-12" *ngIf="step === 2">
+                <label class="col-xs-12">
+                    {{trans.translate('labels.cpass')}}
+                </label>
+                <input class="col-xs-12" type="password" name="cpassphrase"
+                       title="{{trans.translate('labels.cpass')}}"
+                       (input)="showValidateFieldError($event.target)"
+                       (change)="showValidateFieldError($event.target, 1)"/>
+            </div>
             <div class="input-block input-check col-xs-12">
-            <p class="mc-check"
-               (click)="local = !local">
-                <span class="fa" *ngIf="local">&#xf25a;</span>
-            </p>
-            <label class="">
-                {{trans.translate('labels.local')}}
-            </label>
+                <p class="mc-check"
+                   (click)="setAdvanced()">
+                    <span class="fa" *ngIf="advanced">&#xf25a;</span>
+                </p>
+                <label class="">
+                    {{trans.translate('labels.advanced')}}
+                </label>
             </div>
+            <span id="advanced-block">
                 <div class="input-block input-check col-xs-12">
-            <p class="mc-check"
-               (click)="restore = !restore">
-                <span class="fa" *ngIf="restore">&#xf25a;</span>
-            </p>
-            <label class="">
-                {{trans.translate('labels.restore')}}
-            </label>
-            </div>
-        </span>
-    </form>
+                    <p class="mc-check"
+                       (click)="selectLocal()">
+                        <span class="fa" *ngIf="local">&#xf25a;</span>
+                    </p>
+                    <label class="">
+                        {{trans.translate('labels.local')}}
+                    </label>
+                </div>
+                <div class="input-block input-check col-xs-12">
+                    <p class="mc-check"
+                       (click)="restore = !restore">
+                        <span class="fa" *ngIf="restore">&#xf25a;</span>
+                    </p>
+                    <label class="">
+                        {{trans.translate('labels.restore')}}
+                    </label>
+                </div>
+                <span data-name="local">
+                    <div class="input-block input-check col-xs-12">
+                    <p class="mc-check"
+                       (click)="nopass = !nopass">
+                        <span class="fa" *ngIf="nopass">&#xf25a;</span>
+                    </p>
+                    <label class="">
+                        {{trans.translate('labels.nopass')}}
+                    </label>
+                </div>
+                </span>
+            </span>
+        </form>
     </div>
 </div>

@@ -9,7 +9,11 @@ export const RU = {
         open_account: 'Открыть аккаунт',
         new_account: 'Новый Аккаунт',
         create_wallet: 'Создать кошелёк',
-        enter: 'Войти'
+        enter: 'Войти',
+        start: 'Старт',
+        open: 'Открыть',
+        next: 'Далее',
+        back: 'Назад'
     },
     labels: {
         passphrase: 'Секретная фраза',
@@ -52,7 +56,8 @@ export const RU = {
         confirmations: 'Подтверждения',
         per: 'за',
         local: 'Только локально генерировать транзакции и отправлять подписанные.',
-        restore: 'Восстановить секретную фразу.'
+        restore: 'Восстановить секретную фразу.',
+        nopass: 'Без секретной фразы.'
     },
     app: {
         title_1: 'Триумф ',
@@ -98,8 +103,13 @@ export const RU = {
         wrong_ammount: 'Неправильная сумма.',
         wrong_gas: 'Неправильная величина газа.',
         wrong_change: 'Неправильный адрес изменения.',
+        wrong_field: 'Неверное значение поля.',
         sending_transaction_error: 'Транзакция не отправлена. Пожалуйста, попробуйте ещё раз.',
-        tx_open_error: 'Ошибка открытия транзакции.'
+        tx_open_error: 'Ошибка открытия транзакции.',
+        email: 'Должно быть как nick@gmail.com.',
+        phone: 'Должно быть как +380939506642.',
+        passphrase: 'Должно быть минимум 8 символов.',
+        open_error: 'Ошибка открытия. Попробуйте ещё раз.'
     },
     info: {
         account_opened_successfully: 'Account open successfully.',
@@ -112,7 +122,8 @@ export const RU = {
         input_passphrase_new_account: 'Пожалуйста введите секретную фразу для нового аккаунта.',
         please_wait: 'Пожалуйста подождите...',
         fill_transaction_data: 'Пожалуйста запоните данные для транзакции.',
-        raw_transaction: 'Подготовленная транзакция.'
+        raw_transaction: 'Подготовленная транзакция.',
+        no_local_storage: 'Локальное хранилище не доступно! Вы не можете использовать локальные настройки!'
     },
     currencies: {
         ETH: 'Эфир',

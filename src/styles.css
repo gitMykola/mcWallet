@@ -283,7 +283,13 @@ body::-webkit-scrollbar {
   margin: 0;
   padding: 15px;
 }
-.background-img {
+.background-img-light {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url('assets/images/bitcoin.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+.background-img-dark {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url('assets/images/bitcoin.jpg');
   background-size: cover;
   background-attachment: fixed;
 }
@@ -374,7 +380,7 @@ body::-webkit-scrollbar {
   font-size: 18px!important;
 }
 .mc-form .input-block {
-  margin: 15px 0 5px 0;
+  margin: 5px 0;
 }
 .mc-form .input-block input {
   font-size: 22px;
@@ -403,7 +409,7 @@ body::-webkit-scrollbar {
   padding: 6px;
   cursor: pointer;
   height: 35px;
-  min-width: 35px;
+  min-width: 36px;
   text-align: center;
 }
 .mc-form .input-block .mc-check span {
@@ -416,11 +422,18 @@ body::-webkit-scrollbar {
   font-family: mcFontLight;
   font-weight: 100;
 }
+.mc-form .exit {
+  margin: 0;
+}
 .mc-form .exit button {
-  margin: 5px;
+  margin: 0;
   padding: 5px 15px;
 }
 .mc-form #advanced-block {
+  display: none;
+}
+.mc-form span[data-name="local"],
+.mc-form span[data-name="nolocal"] {
   display: none;
 }
 .mc-field {
@@ -440,12 +453,6 @@ body::-webkit-scrollbar {
 @media screen and (max-width: 768px) {
   #app-mc .row {
     padding: 5px;
-  }
-}
-@media screen and (max-height: 480px) {
-  #app-mc #mc-nav-bottom {
-    text-align: right;
-    bottom: 20px;
   }
 }
 @media screen and (max-width: 480px) {

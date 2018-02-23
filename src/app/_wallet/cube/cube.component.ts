@@ -349,12 +349,10 @@ export class CubeAComponent implements OnInit, OnDestroy, OnChanges {
         this.resizeAmmounts = data.width < 768;
     }
     stateCubeChange () {
-        console.log(this.state);
         if (this.state !== 'close') {
             this.state = this.open ? 'active' : 'inactive';
         } else {
             this.state = this.open ? 'active' : this.state;
         }
-        console.log(this.state);
     }
 }
